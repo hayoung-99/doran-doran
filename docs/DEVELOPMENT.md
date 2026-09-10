@@ -379,6 +379,16 @@ npm run check:site  # 스스로 어긋나지 않았는지 (CI 도 이걸 돌린�
 | 종료가 앱을 완전히 끝내게 | [docs/design/quit-fully-terminates.md](design/quit-fully-terminates.md) | 구현 완료 (리뷰 대기) |
 | 캐릭터를 한 마리씩 숨기기 | [docs/design/pet-hide-individual.md](design/pet-hide-individual.md) | 구현 완료 (리뷰 대기) |
 | 리눅스 빌드·배포 파이프라인 | [docs/design/linux-build-pipeline.md](design/linux-build-pipeline.md) | 구현 완료 (리뷰 대기) |
+| 이름을 SimSim Friends 로 | [docs/design/rename-simsim-friends.md](design/rename-simsim-friends.md) | 설계 중 |
+
+**위 문서들에 나오는 `BUDDLING_*` 환경변수와 `buddling-…` 파일 이름은 옛 이름입니다**
+(2026-09 에 `SIMSIM_*` · `simsim-friends-…` 로 옮겼습니다 —
+[rename-simsim-friends.md](design/rename-simsim-friends.md) 참고). 이 문서들은 "그때
+이렇게 만들기로 했다" 는 기록이라 새 이름으로 덮지 않습니다. 그중 하나
+([notifications-screen.md](design/notifications-screen.md) 1.5절)는 **이름을 옮기는
+일 자체를 적은 절**이라, 덮으면 일어나지 않은 일을 적는 셈이 됩니다. 지금 도는 이름은
+언제나 이 문서 위쪽(["자주 쓰는 명령"](#자주-쓰는-명령)·["눈으로 확인하기"](#눈으로-확인하기))이
+기준입니다.
 
 ---
 
