@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/hayoung-99/simsim-friends/compare/v0.9.0...v0.10.0) (2026-09-10)
+
+
+### 새로운 것
+
+* rename the product to SimSim Friends ([#120](https://github.com/hayoung-99/simsim-friends/issues/120)) ([24db4af](https://github.com/hayoung-99/simsim-friends/commit/24db4af4a4a803396afafc4aa49675db6e9a5774))
+
 ## [0.9.0](https://github.com/hayoung-99/buddling/compare/v0.8.0...v0.9.0) (2026-09-01)
 
 
