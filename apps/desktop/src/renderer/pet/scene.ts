@@ -94,7 +94,8 @@ export function createStage({
 
   const scene = new THREE.Scene()
   const lights = addLighting(scene)
-  scene.add(createShadowCatcher())
+  const ground = createShadowCatcher()
+  scene.add(ground)
 
   const camera = new THREE.PerspectiveCamera(PET_CAMERA.fov, 1, 0.1, 50)
   camera.position.set(...PET_CAMERA.position)
@@ -137,5 +138,5 @@ export function createStage({
 
   resize()
 
-  return { renderer, scene, camera, stand, lights, resize, setShadowsLive, render }
+  return { renderer, scene, camera, stand, ground, lights, resize, setShadowsLive, render }
 }

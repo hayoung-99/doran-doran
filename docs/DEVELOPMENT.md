@@ -413,7 +413,7 @@ npm run check:site  # 스스로 어긋나지 않았는지 (CI 도 이걸 돌린�
 | 캐릭터를 한 마리씩 숨기기 | [docs/design/pet-hide-individual.md](design/pet-hide-individual.md) | 구현 완료 (리뷰 대기) |
 | 리눅스 빌드·배포 파이프라인 | [docs/design/linux-build-pipeline.md](design/linux-build-pipeline.md) | 구현 완료 (리뷰 대기) |
 | 이름을 SimSim Friends 로 | [docs/design/rename-simsim-friends.md](design/rename-simsim-friends.md) | 구현 완료 (리뷰 대기) |
-| 캐릭터 캡쳐 스튜디오 | [docs/design/character-capture-studio.md](design/character-capture-studio.md) | 설계 중 |
+| 캐릭터 캡쳐 스튜디오 | [docs/design/character-capture-studio.md](design/character-capture-studio.md) | 구현 완료 (리뷰 대기) |
 
 **위 문서들에 나오는 `BUDDLING_*` 환경변수와 `buddling-…` 파일 이름은 옛 이름입니다**
 (2026-09 에 `SIMSIM_*` · `simsim-friends-…` 로 옮겼습니다 —
