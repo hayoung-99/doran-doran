@@ -23,10 +23,10 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { app } from 'electron'
-import { legacyStorePath } from './legacy-store'
+import { legacyStorePaths } from './legacy-store'
 import { writeJsonAtomically } from './write-json'
-import type { Member, PetSettings, Team } from '@buddling/shared/state'
-import { DEFAULT_SIGNAL } from '@buddling/shared/signals'
+import type { Member, PetSettings, Team } from '@simsim-friends/shared/state'
+import { DEFAULT_SIGNAL } from '@simsim-friends/shared/signals'
 import type { NetEvent } from '../services/net'
 
 /**
@@ -125,25 +125,24 @@ let state: StoredState = { ...DEFAULTS }
 let pending: ReturnType<typeof setTimeout> | null = null
 
 function load() {
-  filePath = path.join(app.getPath('userData'), 'buddling.json')
+  filePath = path.join(app.getPath('userData'), 'simsim-friends.json')
 
   /*
-   * 새 파일이 없으면 이름을 바꾸기 전 자리를 한 번 본다.
+   * 새 파일이 없으면 이름을 바꾸기 전 자리를 가까운 것부터 본다.
    *
    * 앱 이름이 바뀌면 userData 폴더도 함께 바뀌어서, 그냥 두면 이미 쓰던 사람이
    * 세션을 잃고 방과 남남이 된다 (`legacy-store.ts` 참고). 읽어 왔으면 그 자리에서
    * 새 파일로 옮겨 적고, 그다음부터는 새 파일만 본다.
    */
-  const legacy = legacyStorePath(app.getPath('appData'), process.env.BUDDLING_PROFILE)
+  const legacy = legacyStorePaths(app.getPath('appData'), process.env.SIMSIM_PROFILE)
 
-  for (const candidate of [filePath, legacy]) {
-    if (!candidate) continue
+  for (const candidate of [filePath, ...legacy]) {
     try {
       state = { ...DEFAULTS, ...JSON.parse(fs.readFileSync(candidate, 'utf8')) }
       if (candidate !== filePath) write()
       return state
     } catch {
-      // 다음 후보를 본다. 둘 다 없으면 처음 켠 것이다.
+      // 다음 후보를 본다. 전부 없으면 처음 켠 것이다.
     }
   }
 
@@ -166,7 +165,7 @@ function write() {
    *
    * 다음 저장 때 다시 시도한다. 상태는 메모리에 그대로 있으므로 그때 한꺼번에 적힌다.
    */
-  console.error('[buddling] 설정을 저장하지 못했습니다', result.error)
+  console.error('[simsim-friends] 설정을 저장하지 못했습니다', result.error)
 }
 
 function save() {

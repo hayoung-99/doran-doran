@@ -1,5 +1,5 @@
 ---
-name: Buddling Web
+name: SimSim Friends Web
 description: 벽지 위에 떠 있는 창 한 장 — 그리고 그 창을 넘어오는 캐릭터들.
 colors:
   wall-top: "#a9a5bd"
@@ -151,7 +151,7 @@ components:
     padding: "0.6rem 0.75rem"
 ---
 
-# Design System: Buddling Web
+# Design System: SimSim Friends Web
 
 ## Overview
 

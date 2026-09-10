@@ -28,7 +28,7 @@ void app.whenReady().then(async () => {
     width: EDITOR ? 1500 : 1360,
     height: EDITOR ? 820 : 560,
     backgroundColor: '#f5efe1',
-    title: 'Buddling 캐릭터 미리보기',
+    title: 'SimSim Friends 캐릭터 미리보기',
   })
 
   await window.loadFile(path.join(__dirname, '..', 'dist-renderer', 'preview', 'index.html'), {

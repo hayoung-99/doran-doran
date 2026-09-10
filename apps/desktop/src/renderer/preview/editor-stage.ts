@@ -17,7 +17,7 @@
  */
 
 import * as THREE from 'three'
-import { getCharacter } from '@buddling/shared/characters'
+import { getCharacter } from '@simsim-friends/shared/characters'
 import { createCritter, disposeCritter, scaleToStandardHeight } from '../pet/critter'
 import { createStage } from '../pet/scene'
 import { createAnimator, TRACK_UNITS } from '../pet/animations'

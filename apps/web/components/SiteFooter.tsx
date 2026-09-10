@@ -1,5 +1,5 @@
 import type { Copy } from '../lib/copy'
-import { RELEASES_PAGE } from '../lib/site'
+import { REPO_URL, RELEASES_PAGE } from '../lib/site'
 
 /**
  * 창 꼬리말 — 랜딩과 `/download` 가 똑같이 쓴다.
@@ -39,7 +39,7 @@ export function SiteFooter({ copy }: { copy: Copy }) {
   return (
     <footer>
       <nav>
-        <a href="https://github.com/hayoung-99/buddling">
+        <a href={REPO_URL}>
           <GitHubIcon />
           {copy.footer.github}
         </a>

@@ -86,11 +86,11 @@ npm start              # A
 npm run start:second   # B
 ```
 
-`BUDDLING_PROFILE` 로 userData 경로가 갈라지므로 **서로 다른 사람으로 취급됩니다**
+`SIMSIM_PROFILE` 로 userData 경로가 갈라지므로 **서로 다른 사람으로 취급됩니다**
 (로그인 세션·방 소속·캐릭터·창 위치가 각각 따로 저장됩니다).
 
 두 번째 인스턴스의 캐릭터는 첫 번째 왼쪽에 떨어져 뜨고, 메뉴바 아이콘에 마우스를 올리면
-`Buddling (second)` 로 표시되어 구분됩니다.
+`SimSim Friends (second)` 로 표시되어 구분됩니다.
 
 **해볼 순서**
 
@@ -108,7 +108,7 @@ npm run start:second   # B
 ### Supabase 없이 화면만 둘러보기
 
 ```bash
-BUDDLING_FAKE_NET=1 npm start
+SIMSIM_FAKE_NET=1 npm start
 ```
 
 메모리 안의 가짜 서버를 씁니다. 방 만들기·캐릭터 고르기 같은 화면을 전부 눌러볼 수
@@ -121,10 +121,10 @@ BUDDLING_FAKE_NET=1 npm start
 파일 맨 위 주석에 전부 적혀 있습니다.
 
 ```bash
-BUDDLING_PROFILE=shot BUDDLING_FAKE_NET=1 BUDDLING_CAPTURE=.preview/x BUDDLING_LANG=ko \
-  BUDDLING_SEED="나오리와 친구들:나영" BUDDLING_SETTINGS=1 npm start
+SIMSIM_PROFILE=shot SIMSIM_FAKE_NET=1 SIMSIM_CAPTURE=.preview/x SIMSIM_LANG=ko \
+  SIMSIM_SEED="나오리와 친구들:나영" SIMSIM_SETTINGS=1 npm start
 
-BUDDLING_METRICS=5 npm start   # 5초마다 CPU·메모리·보이는 창 수를 찍는다
+SIMSIM_METRICS=5 npm start   # 5초마다 CPU·메모리·보이는 창 수를 찍는다
 ```
 
 ---
@@ -183,14 +183,14 @@ apps/
     └── middleware.ts  보안 헤더와 CSP (/admin 일 때만 넓힌다)
 
 packages/
-└── shared/            앱·랜딩·어드민이 함께 보는 것 — @buddling/shared
+└── shared/            앱·랜딩·어드민이 함께 보는 것 — @simsim-friends/shared
     └── src/           characters · power · i18n/ · state · ipc
 
 scripts/            랜딩 점검 (빌드한 결과를 띄워서 본다)
 supabase/           schema.sql — 테이블과 RPC
 ```
 
-**공유 코드는 `@buddling/shared/…` 로 부릅니다.** 상대경로로 넘나들지 마세요. 이 패키지는
+**공유 코드는 `@simsim-friends/shared/…` 로 부릅니다.** 상대경로로 넘나들지 마세요. 이 패키지는
 빌드하지 않고 소스를 그대로 내보냅니다 — 부르는 쪽이 전부 번들러라 트랜스파일은 그쪽이
 합니다. 타입 검사는 루트 `tsconfig.json` 이 워크스페이스 전부를 한 번에 봅니다.
 
@@ -379,7 +379,7 @@ npm run check:site  # 스스로 어긋나지 않았는지 (CI 도 이걸 돌린�
 | 종료가 앱을 완전히 끝내게 | [docs/design/quit-fully-terminates.md](design/quit-fully-terminates.md) | 구현 완료 (리뷰 대기) |
 | 캐릭터를 한 마리씩 숨기기 | [docs/design/pet-hide-individual.md](design/pet-hide-individual.md) | 구현 완료 (리뷰 대기) |
 | 리눅스 빌드·배포 파이프라인 | [docs/design/linux-build-pipeline.md](design/linux-build-pipeline.md) | 구현 완료 (리뷰 대기) |
-| 이름을 SimSim Friends 로 | [docs/design/rename-simsim-friends.md](design/rename-simsim-friends.md) | 설계 중 |
+| 이름을 SimSim Friends 로 | [docs/design/rename-simsim-friends.md](design/rename-simsim-friends.md) | 구현 완료 (리뷰 대기) |
 
 **위 문서들에 나오는 `BUDDLING_*` 환경변수와 `buddling-…` 파일 이름은 옛 이름입니다**
 (2026-09 에 `SIMSIM_*` · `simsim-friends-…` 로 옮겼습니다 —

@@ -10,7 +10,7 @@
  */
 
 import * as THREE from 'three'
-import { getCharacter } from '@buddling/shared/characters'
+import { getCharacter } from '@simsim-friends/shared/characters'
 import { createCritter, scaleToStandardHeight } from '../pet/critter'
 import { addLighting } from '../pet/scene'
 

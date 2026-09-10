@@ -57,16 +57,16 @@ RPC 안의 검사가 거기 있습니다)와 `apps/*/.impeccable/critique/`(문�
 ```
 apps/desktop      Electron 앱 (예전의 저장소 루트가 통째로 여기)
 apps/web          랜딩페이지와 어드민 (Next.js · Vercel)
-packages/shared   앱·랜딩·어드민이 함께 보는 것 — @buddling/shared
+packages/shared   앱·랜딩·어드민이 함께 보는 것 — @simsim-friends/shared
 scripts/          랜딩페이지 점검 도구
 supabase/         schema.sql
 ```
 
 **명령은 루트에서 부릅니다.** 루트 `package.json` 이 알맞은 워크스페이스로 넘겨줍니다
-(`npm test` → `npm run test -w buddling`). 설치도 루트에서 `npm ci` 한 번이면 됩니다 —
+(`npm test` → `npm run test -w simsim-friends`). 설치도 루트에서 `npm ci` 한 번이면 됩니다 —
 workspaces 가 의존성을 루트 `node_modules` 로 올려 두기 때문입니다.
 
-**공유 코드는 `@buddling/shared/…` 로 부릅니다.** 상대경로로 넘나들지 마세요.
+**공유 코드는 `@simsim-friends/shared/…` 로 부릅니다.** 상대경로로 넘나들지 마세요.
 이 패키지는 **빌드하지 않고 소스를 그대로 내보냅니다** — 부르는 쪽이 전부 번들러라
 트랜스파일은 그쪽이 합니다. 그래서 산출물이 어긋날 일이 없습니다. `tsc` 가 이걸 찾는
 길은 `tsconfig.base.json` 의 `paths` 하나뿐이니, 새 하위 경로를 만들면
@@ -232,7 +232,7 @@ TS 를 스스로 파싱하므로 그 제약을 받지 않습니다.
 
 ## 어드민(`/admin`) 관례
 
-주소는 `https://buddling.vercel.app/admin/` 하나입니다. `.vercel.app` 아래에는
+주소는 `https://simsim-friends.vercel.app/admin/` 하나입니다. `.vercel.app` 아래에는
 서브도메인을 달 수 없습니다 — 그 존은 Vercel 소유라 프로젝트 이름 하나만 배정됩니다.
 서브도메인으로 옮기려면 실제 도메인을 사야 합니다.
 
@@ -394,7 +394,7 @@ stage.camera.updateMatrixWorld()
 **클래식 브랜치 보호가 아니라 규칙셋(ruleset)입니다.** 그래서
 `gh api repos/…/branches/main/protection` 은 **404 를 냅니다** — 보호가 없다는 뜻이
 아니니 그 404 를 보고 "안 걸려 있구나" 로 읽지 마세요 (실제로 한 번 그렇게 잘못
-읽은 적이 있습니다). 확인하려면 `gh api repos/hayoung-99/buddling/rulesets` 를 봅니다.
+읽은 적이 있습니다). 확인하려면 `gh api repos/hayoung-99/simsim-friends/rulesets` 를 봅니다.
 
 그래서 **"검사를 안 돌리고 넘어가기"가 불가능합니다.** 초록인지 눈으로 지키는 대신
 GitHub 이 지킵니다.
@@ -636,6 +636,26 @@ DB 는 `security definer` RPC 로만 접근합니다. 테이블은 RLS 로 잠�
   (`artifactName` 이 `${productName}` 대신 `buddling-…`). 안 그러면 내려받는 주소에
   `%20` 이 섞입니다.
 
+  **위 표의 `appId` 줄은 2026-09 에 뜻이 뒤집혔습니다.** `Buddling` 에서 **SimSim
+  Friends** 로 옮기면서, "바꾸지 말라" 고 적어 두었던 `appId` 를 **실제로 바꿨습니다**
+  (`com.taptap.desktop` → `com.simsimfriends.desktop`). 근거는 기획서의 "이름을
+  바꿀 때는 사람 눈에 안 보이는 이름까지 바꾼다" 절이고, **쓰는 사람이 없을 때만 낼 수
+  있는 값**이라는 조건이 거기 적혀 있습니다. 그래서 이미 깔린 앱은 새 버전을
+  업데이트가 아니라 다른 앱으로 봅니다.
+
+  `productName` 이 `Buddling` → `SimSim Friends` 가 되면서 userData 폴더가 또 새로
+  생깁니다. `main/legacy-store.ts` 의 후보 목록이 **이제 세 자리**를 봅니다
+  (`Buddling` · `buddling` · `tap-tap`). **이 파일을 지우면 그 이사가 사라집니다.**
+
+  `productName` 에 **빈칸이 실제로 들어갔습니다.** `artifactName` 을 따로 정하는
+  이유가 이제 진짜입니다. macOS 앱 경로를 명령줄에 적을 때는 따옴표가 필요합니다.
+
+  `apps/desktop/CHANGELOG.md` 는 **이번에도 그대로 둡니다.**
+
+  `docs/design/*.md` 안의 `BUDDLING_*` 환경변수와 `buddling-*` 파일 이름은
+  **옛 이름입니다** — [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) 의 "기능별 설계
+  문서" 표 아래 안내를 보세요.
+
 - **`packages/shared` 만 고친 커밋은 릴리스에 안 잡힙니다.** release-please 는 커밋을
   경로로 거르는데(`file.indexOf(경로 + '/') === 0`, 어디에도 안 붙으면 버립니다) 등록된
   경로가 `apps/desktop` 하나입니다. 그런데 shared 는 빌드할 때 **앱 번들에 통째로
@@ -675,7 +695,7 @@ DB 는 `security definer` RPC 로만 접근합니다. 테이블은 RLS 로 잠�
   앱 폴더에서 그것을 찾다 실패하고 **범위 표기(`^43.4.0`)로는 어느 바이너리를 받을지
   정하지 못합니다.** 캐럿을 도로 붙이면 `npm run dist` 가 통째로 멈춥니다
   (`Cannot compute electron version`). dependabot 은 정확한 버전도 잘 올려 줍니다.
-- **`@buddling/shared` 는 `devDependencies` 에 있습니다.** 빌드할 때 번들에 녹아들어
+- **`@simsim-friends/shared` 는 `devDependencies` 에 있습니다.** 빌드할 때 번들에 녹아들어
   런타임에는 부르지 않기 때문입니다. `dependencies` 로 옮기면 타입스크립트 소스가
   배포본 asar 안에 그대로 실립니다.
 - **preload 는 CommonJS 여야 합니다.** 창들이 `sandbox` 를 끄지 않아서, ESM 으로
@@ -691,7 +711,7 @@ DB 는 `security definer` RPC 로만 접근합니다. 테이블은 RLS 로 잠�
   `emptyOutDir` 가 지워 버리기 때문입니다.) 오프라인
   상황을 흉내 내려면 닿지 않는 주소(`https://127.0.0.1:9`)를 주는 편이 확실합니다.
 - **앱이 이미 떠 있으면 두 번째 실행은 조용히 죽습니다** (단일 인스턴스 잠금).
-  로그가 비어 있으면 이걸 먼저 의심하세요. `pkill -f "buddling/node_modules/electron"`.
+  로그가 비어 있으면 이걸 먼저 의심하세요. `pkill -f "simsim-friends/node_modules/electron"`.
 - **3D 좌표를 화면 좌표로 옮기기 전에 카메라 행렬을 손수 갱신해야 합니다.**
   첫 프레임 전에는 행렬이 낡아 있어서, 클릭 영역이 캐릭터와 50px쯤 어긋납니다.
 - **Tailwind 는 `html` 에 `line-height: 1.5` 를 겁니다.** 말풍선과 이름표는 그 전부터
@@ -705,7 +725,7 @@ DB 는 `security definer` RPC 로만 접근합니다. 테이블은 RLS 로 잠�
 - **캐릭터 창은 평소에는 `close` 를 막지만 종료 중에는 비켜 줍니다.** 맥에서 ⌘W 로
   닫히면 캐릭터가 영영 사라지기 때문입니다. 없애는 길은 숨기기(세 자리)와 팀
   나가기뿐입니다 (`closable: false` 는 쓰지 않습니다 — 그 값은 ⌘W 만 막는 게 아니라
-  종료 자체를 통째로 취소시킵니다). **buddling 종료(프로세스 완전 종료)로 가는 길은
+  종료 자체를 통째로 취소시킵니다). **simsim-friends 종료(프로세스 완전 종료)로 가는 길은
   트레이 메뉴 하나뿐입니다** — 캐릭터 우클릭 메뉴에는 종료 항목을 두지 않습니다
   (2026-08-31). 그리고 그 트레이 메뉴가 화면에서 닫힌 뒤에 나갑니다 — **메뉴가 떠 있는
   동안 `app.quit()` 을 부르면 프로세스가 영구히 얼어붙기 때문입니다** (`main/quit.ts`
@@ -727,8 +747,8 @@ DB 는 `security definer` RPC 로만 접근합니다. 테이블은 RLS 로 잠�
 환경변수로 상황을 만들어 주고 PNG 를 남긴 뒤 앱을 끕니다.
 
 ```bash
-BUDDLING_PROFILE=shot BUDDLING_FAKE_NET=1 BUDDLING_CAPTURE=.preview/x BUDDLING_LANG=ko \
-  BUDDLING_SEED="디자인팀:나영" BUDDLING_SETTINGS=1 npm start
+SIMSIM_PROFILE=shot SIMSIM_FAKE_NET=1 SIMSIM_CAPTURE=.preview/x SIMSIM_LANG=ko \
+  SIMSIM_SEED="디자인팀:나영" SIMSIM_SETTINGS=1 npm start
 ```
 
 쓸 수 있는 환경변수는 그 파일 맨 위 주석에 전부 적혀 있습니다.
@@ -736,7 +756,7 @@ BUDDLING_PROFILE=shot BUDDLING_FAKE_NET=1 BUDDLING_CAPTURE=.preview/x BUDDLING_L
 성능이 걱정되는 변경을 했다면 실제로 재세요.
 
 ```bash
-BUDDLING_METRICS=5 npm start   # 5초마다 CPU·메모리·보이는 창 수를 찍는다
+SIMSIM_METRICS=5 npm start   # 5초마다 CPU·메모리·보이는 창 수를 찍는다
 ```
 
 ---
@@ -752,5 +772,5 @@ BUDDLING_METRICS=5 npm start   # 5초마다 CPU·메모리·보이는 창 수를
 - 릴리스는 release-please 가 만든 PR 을 머지하면 일어납니다. 태그를 직접 밀지 마세요.
 - **검증용으로 띄운 앱을 정리할 때는 메인 프로세스를 먼저 죽이고 프로필 폴더를
   지우세요.** 순서가 뒤바뀌면 예약된 저장이 사라진 폴더에 쓰려다 오류창이 뜹니다.
-  `BUDDLING_PROFILE` 은 `app.setPath` 로 걸리므로 메인 프로세스 명령줄에
+  `SIMSIM_PROFILE` 은 `app.setPath` 로 걸리므로 메인 프로세스 명령줄에
   `--user-data-dir` 이 없습니다 — 그걸로 찾으면 헬퍼만 잡고 메인은 살아남습니다.

@@ -6,7 +6,7 @@
  * 덮이고, 달력 날짜로 가르면 기기 시간대·서버 시각·자정 경계를 함께 다뤄야 한다.
  */
 
-import type { Translate } from '@buddling/shared/i18n'
+import type { Translate } from '@simsim-friends/shared/i18n'
 
 /**
  * @param at 그 줄이 일어난 시각(epoch ms) — 서버 줄은 서버가 적은 시각, `kicked-me` 는

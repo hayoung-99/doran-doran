@@ -1,4 +1,5 @@
 import type { Copy } from './copy'
+import { RELEASES_PAGE } from './site'
 
 /** 영어판. 문장은 예전 `site/en/index.html` 에서 그대로 옮겨 왔다. */
 export const en: Copy = {
@@ -24,7 +25,7 @@ export const en: Copy = {
     headingTop: 'This is what',
     headingBottom: 'opens up',
     body: 'Create a team and you get a six character code. Your teammates type it in, and that is it.',
-    imageAlt: 'The Buddling window with a team list open, showing one team with one teammate online.',
+    imageAlt: 'The SimSim Friends window with a team list open, showing one team with one teammate online.',
   },
 
   characters: {
@@ -53,10 +54,10 @@ export const en: Copy = {
     label: 'Download',
     heading: 'The file for your machine',
     sub: 'Every version stays here. Most people just want the latest one.',
-    metaTitle: 'Buddling · Download',
-    metaDescription: 'Download Buddling for macOS and Windows. Older versions stay available too.',
+    metaTitle: 'SimSim Friends · Download',
+    metaDescription: 'Download SimSim Friends for macOS and Windows. Older versions stay available too.',
     ogDescription: 'Pick the file for your machine. Older versions are still here if you need them.',
-    backHome: 'Back to Buddling',
+    backHome: 'Back to SimSim Friends',
     latest: 'Latest',
     releaseNotes: 'View release notes',
     button: 'Download',
@@ -67,11 +68,11 @@ export const en: Copy = {
     ],
     mobileGateHeading: 'Open this on a computer',
     mobileGateBody:
-      'Buddling is a macOS and Windows desktop app, and the files here only open on a computer. Send yourself this link and open it there.',
+      'SimSim Friends is a macOS and Windows desktop app, and the files here only open on a computer. Send yourself this link and open it there.',
     pending: (
       <>
         Nothing has been published yet. It will show up here as soon as it is ready.{' '}
-        <a href="https://github.com/hayoung-99/buddling/releases">Check the releases page</a>
+        <a href={RELEASES_PAGE}>Check the releases page</a>
       </>
     ),
   },
@@ -82,7 +83,7 @@ export const en: Copy = {
     sub: 'Your computer checks with you once. Do this and it opens normally from then on.',
     macos: {
       title: 'macOS',
-      howToName: 'Open Buddling for the first time on macOS',
+      howToName: 'Open SimSim Friends for the first time on macOS',
       steps: [
         ['Move the app into your ', { strong: 'Applications' }, ' folder.'],
         ['Double click it. When the warning appears, press ', { strong: 'Done' }, '.'],
@@ -98,7 +99,7 @@ export const en: Copy = {
     },
     windows: {
       title: 'Windows',
-      howToName: 'Install Buddling on Windows',
+      howToName: 'Install SimSim Friends on Windows',
       steps: [
         ['Double click the file you downloaded.'],
         ['When the blue box appears, click ', { strong: 'More info' }, '.'],
@@ -114,7 +115,7 @@ export const en: Copy = {
     items: [
       {
         id: 'faq-what',
-        question: 'What is Buddling?',
+        question: 'What is SimSim Friends?',
         answer:
           'A macOS and Windows app that keeps a 3D animal character on your desktop. Tap your own and everyone on that team sees theirs dance. It is free and there is no sign up.',
       },
@@ -190,7 +191,7 @@ export const en: Copy = {
   },
 
   meta: {
-    title: 'Buddling · A free desktop pet your teammates can feel',
+    title: 'SimSim Friends · A free desktop pet your teammates can feel',
     description:
       "Put a 3D animal friend on your desktop. Tap yours and your teammates' characters dance on theirs. Free for macOS and Windows, no sign up needed.",
     ogDescription:

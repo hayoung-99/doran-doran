@@ -31,11 +31,11 @@
  */
 
 import * as THREE from 'three'
-import { getCharacter } from '@buddling/shared/characters'
-import { createTranslator } from '@buddling/shared/i18n'
-import { powerProfile, SLEEP_FPS } from '@buddling/shared/power'
-import type { PowerProfile } from '@buddling/shared/power'
-import type { AppState, Membership, TapPayload } from '@buddling/shared/state'
+import { getCharacter } from '@simsim-friends/shared/characters'
+import { createTranslator } from '@simsim-friends/shared/i18n'
+import { powerProfile, SLEEP_FPS } from '@simsim-friends/shared/power'
+import type { PowerProfile } from '@simsim-friends/shared/power'
+import type { AppState, Membership, TapPayload } from '@simsim-friends/shared/state'
 import { createCritter, disposeCritter, scaleToStandardHeight } from './critter'
 import type { Critter } from './critter'
 import { createStage } from './scene'
@@ -47,8 +47,8 @@ import { createPuff } from './puff'
 import { createGreet } from './greet'
 import { createHeartBubble } from './heart-bubble'
 import { createTakeoff } from './takeoff'
-import { toSignal } from '@buddling/shared/signals'
-import type { SignalKind } from '@buddling/shared/signals'
+import { toSignal } from '@simsim-friends/shared/signals'
+import type { SignalKind } from '@simsim-friends/shared/signals'
 import { createPacer } from './pacer'
 
 /**

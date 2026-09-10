@@ -1,11 +1,11 @@
 /**
- * Buddling 진입점.
+ * SimSim Friends 진입점.
  *
  * 속한 팀마다 캐릭터 창이 하나씩 뜬다. 팀에 들어가고 나갈 때마다
  * `syncPetWindows()` 가 창 목록을 소속과 맞춰 준다.
  *
  * 두 번째 인스턴스를 띄워 혼자서 테스트하려면:
- *   BUDDLING_PROFILE=second npm start
+ *   SIMSIM_PROFILE=second npm start
  * userData 경로가 갈라지므로 다른 기기처럼 취급된다.
  */
 
@@ -46,13 +46,13 @@ import type { Updates } from './updates'
 const userDataDir = electronApp.getPath('userData')
 electronApp.setPath(
   'userData',
-  process.env.BUDDLING_PROFILE ? `${userDataDir}-${process.env.BUDDLING_PROFILE}` : userDataDir,
+  process.env.SIMSIM_PROFILE ? `${userDataDir}-${process.env.SIMSIM_PROFILE}` : userDataDir,
 )
 
 // 메뉴 막대와 About 창에 보이는 이름. package.json 의 `name` 이 소문자라 그대로 두면
-// "Quit buddling" 이 된다. `build.productName` 은 electron-builder 만 보는 값이라
+// "Quit simsim-friends" 가 된다. `build.productName` 은 electron-builder 만 보는 값이라
 // Electron 의 `app.getName()` 에는 닿지 않는다. **위에서 폴더를 못 박은 뒤라야 한다.**
-electronApp.setName('Buddling')
+electronApp.setName('SimSim Friends')
 
 /**
  * 이 프로세스가 처음 뜬 인스턴스인가.
@@ -489,7 +489,7 @@ function start() {
     }
 
     // 켜졌을 때만 읽는다 — 늘 도는 것이 아니라 재 볼 때만 쓰는 도구다
-    if (process.env.BUDDLING_METRICS) {
+    if (process.env.SIMSIM_METRICS) {
       const { startMetrics } = await import('./metrics')
       startMetrics(electronApp)
     }
@@ -532,8 +532,8 @@ if (isFirstInstance) {
 }
 
 process.on('unhandledRejection', (reason) => {
-  console.error('[buddling] 처리되지 않은 오류', reason)
-  if (process.env.BUDDLING_DEBUG) {
-    dialog.showErrorBox('Buddling 오류', String((reason as Error)?.message ?? reason))
+  console.error('[simsim-friends] 처리되지 않은 오류', reason)
+  if (process.env.SIMSIM_DEBUG) {
+    dialog.showErrorBox('SimSim Friends 오류', String((reason as Error)?.message ?? reason))
   }
 })

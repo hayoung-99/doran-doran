@@ -1,6 +1,6 @@
 import { contextBridge, ipcRenderer } from 'electron'
-import type { PetApi, IpcResult } from '@buddling/shared/ipc'
-import type { AppState, TapPayload } from '@buddling/shared/state'
+import type { PetApi, IpcResult } from '@simsim-friends/shared/ipc'
+import type { AppState, TapPayload } from '@simsim-friends/shared/state'
 
 /**
  * 캐릭터 창은 팀마다 하나씩 뜬다.

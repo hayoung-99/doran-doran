@@ -7,7 +7,7 @@ apps/*/dist-preload/
 .DS_Store
 *.log
 
-# 개발용 캡처 (TAPTAP_CAPTURE 로 언제든 다시 뜰 수 있다)
+# 개발용 캡처 (SIMSIM_CAPTURE 로 언제든 다시 뜰 수 있다)
 .preview/
 
 # 접속 정보가 든 파일들. 경로를 가리지 않고 전부 막는다 —

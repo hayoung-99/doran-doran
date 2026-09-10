@@ -6,12 +6,12 @@
  */
 
 import { useState } from 'react'
-import { CHARACTERS, getCharacter } from '@buddling/shared/characters'
-import { SIGNALS, toSignal } from '@buddling/shared/signals'
-import type { SignalKind } from '@buddling/shared/signals'
-import { createTranslator } from '@buddling/shared/i18n'
-import type { Translate } from '@buddling/shared/i18n'
-import type { Membership, Team } from '@buddling/shared/state'
+import { CHARACTERS, getCharacter } from '@simsim-friends/shared/characters'
+import { SIGNALS, toSignal } from '@simsim-friends/shared/signals'
+import type { SignalKind } from '@simsim-friends/shared/signals'
+import { createTranslator } from '@simsim-friends/shared/i18n'
+import type { Translate } from '@simsim-friends/shared/i18n'
+import type { Membership, Team } from '@simsim-friends/shared/state'
 import { characterThumbnails } from './thumbnails'
 import { inviteStatus } from './invite'
 import { useAppState, useMinuteTick, useRunner, useToast } from './hooks'

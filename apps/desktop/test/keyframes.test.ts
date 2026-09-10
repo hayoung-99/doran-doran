@@ -32,7 +32,7 @@ import {
 } from '../src/renderer/preview/keyframes'
 import { sampleTrack } from '../src/renderer/pet/tween'
 import type { Keyframe } from '../src/renderer/pet/tween'
-import { getCharacter } from '@buddling/shared/characters'
+import { getCharacter } from '@simsim-friends/shared/characters'
 import { createCritter } from '../src/renderer/pet/critter'
 
 /** 소스에 적혀 있는 네 트랙. 이름은 뽑아낸 소스의 상수 이름이 된다. */

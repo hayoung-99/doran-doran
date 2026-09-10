@@ -17,7 +17,7 @@
 import { describe, it, expect } from 'vitest'
 import { Box3, Group, PerspectiveCamera, Vector3 } from 'three'
 import type * as THREE from 'three'
-import { CHARACTERS } from '@buddling/shared/characters'
+import { CHARACTERS } from '@simsim-friends/shared/characters'
 import { createCritter, scaleToStandardHeight } from '../src/renderer/pet/critter'
 import { PET_CAMERA } from '../src/renderer/pet/scene'
 import { createAnimator, sampleShy, SHY_DURATION, SHY_UNIT } from '../src/renderer/pet/animations'

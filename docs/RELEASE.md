@@ -56,14 +56,14 @@ git branch -M main
 **gh CLI 로** (`brew install gh` 로 설치하고 `gh auth login` 으로 로그인한 뒤)
 
 ```bash
-gh repo create buddling --public --source=. --remote=origin --push
+gh repo create simsim-friends --public --source=. --remote=origin --push
 ```
 
-**웹에서** — github.com/new 에서 이름 `buddling`, 공개(Public)로 만들고,
+**웹에서** — github.com/new 에서 이름 `simsim-friends`, 공개(Public)로 만들고,
 README·.gitignore·라이선스는 **아무것도 체크하지 않은** 채로 만듭니다. 그다음:
 
 ```bash
-git remote add origin https://github.com/hayoung-99/buddling.git
+git remote add origin https://github.com/hayoung-99/simsim-friends.git
 git push -u origin main
 ```
 
@@ -133,7 +133,7 @@ main 에 무언가 머지될 때마다 release-please 가 **"다음 릴리스" P
 > **리눅스 빌드는 당분간 실패해도 워크플로가 초록입니다** (`continue-on-error`).
 > 리눅스가 이번이 처음이라 무엇이 어긋날지 모르는데, 여기서 걸린다고 멀쩡히 만들어진
 > 맥·윈도우 파일까지 못 나가게 하지 않기 위해서입니다. 그래서 **공개된 릴리스에
-> `buddling-{version}-x86_64.AppImage` 와 `latest-linux.yml` 이 둘 다 올라갔는지
+> `simsim-friends-{version}-x86_64.AppImage` 와 `latest-linux.yml` 이 둘 다 올라갔는지
 > 눈으로 확인하세요.** `latest-linux.yml` 이 빠지면 리눅스 쪽 자동 업데이트가
 > 조용히 멈춥니다. 리눅스 빌드가 연속 세 번 성공하면
 > [`.github/workflows/release.yml`](../.github/workflows/release.yml) 의 `optional`
@@ -210,7 +210,7 @@ main 에 무언가 머지될 때마다 release-please 가 **"다음 릴리스" P
 그래도 막히면 터미널에서:
 
 ```bash
-xattr -cr /Applications/Buddling.app
+xattr -cr "/Applications/SimSim Friends.app"
 ```
 
 > **"우클릭 → 열기" 는 이제 통하지 않습니다.** 애플이 macOS 15(Sequoia)부터 공증되지
@@ -261,14 +261,14 @@ npm run dist -- --mac     # 내 컴퓨터에서 빌드해 보기 (키가 없으�
 의 `MATCHERS` 도 함께 고쳐야 합니다.
 
 ```
-buddling-0.1.0-arm64.dmg      macOS (Apple Silicon)
-buddling-0.1.0-x64.dmg        macOS (Intel)
-buddling-0.1.0-setup.exe      Windows
+simsim-friends-0.1.0-arm64.dmg      macOS (Apple Silicon)
+simsim-friends-0.1.0-x64.dmg        macOS (Intel)
+simsim-friends-0.1.0-setup.exe      Windows
 ```
 
-**소문자에 빈칸이 없는 것은 일부러입니다.** `productName` 이 `Buddling` 이라 그대로
-두면 파일 이름에 빈칸이 들어가고 내려받는 주소에 `%20` 이 섞이므로,
-`artifactName` 을 따로 정해 두었습니다.
+**소문자에 빈칸이 없는 것은 일부러입니다.** `productName` 이 `SimSim Friends` 라
+빈칸이 실제로 들어 있어서, 그대로 두면 파일 이름에도 빈칸이 들어가고 내려받는
+주소에 `%20` 이 섞입니다. 그래서 `artifactName` 을 따로 정해 두었습니다.
 
 받는 사람은 **아무 설정도 필요 없습니다.** 앱을 열면 바로 방을 만들 수 있어야 합니다.
 "조금만 더 준비하면 돼요" 화면이 뜬다면 키가 구워지지 않은 것이니 다시 빌드하세요.
@@ -395,9 +395,9 @@ requirement for auto-updating on macOS."* 그래서 맥에서는 아예 시도�
 버전이 늘 더 높게 보여 쓸모가 없기 때문입니다. 배너 모양만 보려면:
 
 ```bash
-BUDDLING_FAKE_NET=1 BUDDLING_CAPTURE=.preview/upd BUDDLING_SEED="나오리와 친구들:나영" \
-  BUDDLING_UPDATE="0.2.0:ready" npm start     # "지금 적용하기"
-  BUDDLING_UPDATE="0.2.0"       npm start     # "받으러 가기"
+SIMSIM_FAKE_NET=1 SIMSIM_CAPTURE=.preview/upd SIMSIM_SEED="나오리와 친구들:나영" \
+  SIMSIM_UPDATE="0.2.0:ready" npm start     # "지금 적용하기"
+  SIMSIM_UPDATE="0.2.0"       npm start     # "받으러 가기"
 ```
 
 진짜 흐름은 Windows 에서 **버전이 다른 두 릴리스**로 확인해야 합니다. 낮은 버전을

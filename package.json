@@ -1,13 +1,13 @@
 {
-  "name": "buddling-workspace",
+  "name": "simsim-friends-workspace",
   "private": true,
-  "description": "Buddling 저장소. 실제 앱은 apps/ 아래에 있다.",
+  "description": "SimSim Friends 저장소. 실제 앱은 apps/ 아래에 있다.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hayoung-99/buddling.git"
+    "url": "git+https://github.com/hayoung-99/simsim-friends.git"
   },
-  "homepage": "https://buddling.vercel.app",
+  "homepage": "https://simsim-friends.vercel.app",
   "engines": {
     "node": ">=22"
   },
@@ -17,25 +17,25 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build -w buddling && npm run build -w @buddling/web",
-    "build:web": "npm run build -w @buddling/web",
-    "test": "npm run test -w buddling",
+    "build": "npm run build -w simsim-friends && npm run build -w @simsim-friends/web",
+    "build:web": "npm run build -w @simsim-friends/web",
+    "test": "npm run test -w simsim-friends",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint --type-aware",
-    "app-icon": "npm run app-icon -w buddling",
-    "check": "npm run check -w buddling",
-    "check:expiry": "npm run check:expiry -w buddling",
+    "app-icon": "npm run app-icon -w simsim-friends",
+    "check": "npm run check -w simsim-friends",
+    "check:expiry": "npm run check:expiry -w simsim-friends",
     "check:site": "npm run build:web && node scripts/check-site.js",
-    "dev": "npm run dev -w buddling",
-    "dev:web": "npm run dev -w @buddling/web",
-    "dist": "npm run dist -w buddling",
-    "preview": "npm run preview -w buddling",
-    "site-images": "npm run site-images -w buddling --",
-    "start": "npm run start -w buddling",
-    "start:both": "npm run start:both -w buddling",
-    "start:second": "npm run start:second -w buddling",
-    "test:watch": "npm run test:watch -w buddling",
-    "tray-icon": "npm run tray-icon -w buddling"
+    "dev": "npm run dev -w simsim-friends",
+    "dev:web": "npm run dev -w @simsim-friends/web",
+    "dist": "npm run dist -w simsim-friends",
+    "preview": "npm run preview -w simsim-friends",
+    "site-images": "npm run site-images -w simsim-friends --",
+    "start": "npm run start -w simsim-friends",
+    "start:both": "npm run start:both -w simsim-friends",
+    "start:second": "npm run start:second -w simsim-friends",
+    "test:watch": "npm run test:watch -w simsim-friends",
+    "tray-icon": "npm run tray-icon -w simsim-friends"
   },
   "devDependencies": {
     "oxlint": "^1.80.0",

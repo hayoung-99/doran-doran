@@ -7,7 +7,7 @@ import { writeJsonAtomically } from '../src/main/write-json'
 let dir: string
 
 beforeEach(() => {
-  dir = fs.mkdtempSync(path.join(os.tmpdir(), 'taptap-write-'))
+  dir = fs.mkdtempSync(path.join(os.tmpdir(), 'simsim-friends-write-'))
 })
 
 afterEach(() => {

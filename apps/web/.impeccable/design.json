@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-08-26T00:03:42.758Z",
-  "title": "Design System: Buddling Web",
+  "title": "Design System: SimSim Friends Web",
   "extensions": {
     "colorMeta": {
       "wall-top": {
@@ -260,7 +260,7 @@
       "kind": "nav",
       "refersTo": "window-titlebar",
       "description": "이 시스템의 서명. 신호등 셋이 글자 한 자 읽기 전에 \"바탕화면에 뜨는 것\"이라고 말한다.",
-      "html": "<header class=\"ds-titlebar\"><svg class=\"ds-lights\" viewBox=\"0 0 56 12\" aria-hidden=\"true\"><circle cx=\"6\" cy=\"6\" r=\"6\" fill=\"#ff5f57\"/><circle cx=\"26\" cy=\"6\" r=\"6\" fill=\"#febc2e\"/><circle cx=\"46\" cy=\"6\" r=\"6\" fill=\"#28c840\"/></svg><span class=\"ds-title\">Buddling</span><nav class=\"ds-nav\"><a href=\"#\">캐릭터</a><a href=\"#\">받기</a><a class=\"ds-lang\" href=\"#\">EN</a></nav></header>",
+      "html": "<header class=\"ds-titlebar\"><svg class=\"ds-lights\" viewBox=\"0 0 56 12\" aria-hidden=\"true\"><circle cx=\"6\" cy=\"6\" r=\"6\" fill=\"#ff5f57\"/><circle cx=\"26\" cy=\"6\" r=\"6\" fill=\"#febc2e\"/><circle cx=\"46\" cy=\"6\" r=\"6\" fill=\"#28c840\"/></svg><span class=\"ds-title\">SimSim Friends</span><nav class=\"ds-nav\"><a href=\"#\">캐릭터</a><a href=\"#\">받기</a><a class=\"ds-lang\" href=\"#\">EN</a></nav></header>",
       "css": ".ds-titlebar { display: flex; align-items: center; gap: 14px; padding: 0 22px; height: 52px; background: color-mix(in srgb, var(--panel, #f7f5f1) 88%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(43,39,51,0.1); border-radius: 14px 14px 0 0; color: var(--ink, #2b2733); } .ds-lights { width: 42px; flex: none; } .ds-title { font-size: 0.86rem; font-weight: 700; letter-spacing: -0.01em; } .ds-nav { margin-left: auto; display: flex; gap: 1.3rem; font-size: 0.86rem; } .ds-nav a { text-decoration: none; color: var(--ink-soft, #615c6e); } .ds-nav a:hover { color: var(--ink, #2b2733); } .ds-lang { color: var(--ink, #2b2733) !important; border-left: 1px solid rgba(43,39,51,0.1); padding-left: 1.3rem; }"
     },
     {
@@ -268,7 +268,7 @@
       "kind": "custom",
       "refersTo": "download-row",
       "description": "내려받기 한 줄. 추천 항목은 뱃지가 아니라 테두리 색으로만 표시한다.",
-      "html": "<div class=\"ds-dl-row ds-dl-recommended\"><div><div class=\"ds-dl-name\">macOS — 요즘 맥</div><div class=\"ds-dl-meta\">buddling-0.5.0-arm64.dmg · 117 MB</div></div><a class=\"ds-dl-btn\" href=\"#\">받기</a></div>",
+      "html": "<div class=\"ds-dl-row ds-dl-recommended\"><div><div class=\"ds-dl-name\">macOS — 요즘 맥</div><div class=\"ds-dl-meta\">simsim-friends-0.5.0-arm64.dmg · 117 MB</div></div><a class=\"ds-dl-btn\" href=\"#\">받기</a></div>",
       "css": ".ds-dl-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 14px 16px; border: 1px solid rgba(43,39,51,0.1); border-radius: 10px; color: var(--ink, #2b2733); transition: transform 120ms ease, border-color 150ms ease; } .ds-dl-row:hover { transform: translateY(-1px); border-color: var(--ink-soft, #615c6e); } .ds-dl-recommended { border-color: var(--accent, #9a5d18); } .ds-dl-name { font-weight: 700; font-size: 0.96rem; } .ds-dl-meta { font-size: 0.82rem; color: var(--ink-soft, #615c6e); } .ds-dl-btn { display: inline-flex; align-items: center; font: inherit; font-weight: 700; font-size: 0.86rem; text-decoration: none; padding: 0.5rem 1.05rem; border-radius: 8px; background: var(--ink, #2b2733); color: var(--panel, #f7f5f1); }"
     },
     {

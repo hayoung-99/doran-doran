@@ -2,14 +2,14 @@
 
 <img src="apps/web/public/assets/hero-cat.webp" alt="바탕화면 위에 서 있는 흰 고양이 캐릭터" width="200">
 
-# Buddling
+# SimSim Friends
 
 **바탕화면 위에 작은 친구 한 마리.**
 내 캐릭터를 누르면 상대 화면에서 캐릭터가 춤을 춰요.
 
 무료 · 가입 없음 · macOS · Windows · Linux
 
-[**받으러 가기**](https://buddling.vercel.app/) · [English](https://buddling.vercel.app/en/)
+[**받으러 가기**](https://simsim-friends.vercel.app/) · [English](https://simsim-friends.vercel.app/en/)
 
 </div>
 
@@ -20,7 +20,7 @@
 말을 걸기에는 시시하고, 안 걸자니 아쉬운 순간이 있어요. "뭐 해?" 라고 보내면 상대가
 답해야 할 것 같아 부담이 되고, 그렇다고 이모지 하나만 보내기도 뻘쭘하고요.
 
-Buddling은 그 사이를 채웁니다. 내가 내 캐릭터를 톡 누르면, 멀리 있는 친구의 바탕화면
+SimSim Friends는 그 사이를 채웁니다. 내가 내 캐릭터를 톡 누르면, 멀리 있는 친구의 바탕화면
 구석에서 캐릭터가 잠깐 춤을 춰요. **받은 쪽은 아무것도 하지 않아도 됩니다.** 읽음
 표시도, 답장해야 할 말풍선도 없어요. 그냥 뭔가 잠깐 움직였고 그게 나였다는 것만
 전해집니다.
@@ -49,9 +49,9 @@ Buddling은 그 사이를 채웁니다. 내가 내 캐릭터를 톡 누르면, �
 
 받는 곳은 두 군데인데 내용은 같습니다.
 
-- [Buddling 홈페이지](https://buddling.vercel.app/#download) — 내 컴퓨터에 맞는
+- [SimSim Friends 홈페이지](https://simsim-friends.vercel.app/#download) — 내 컴퓨터에 맞는
   파일을 알아서 골라 줍니다
-- [GitHub 릴리스](https://github.com/hayoung-99/buddling/releases) — 지난 버전까지 전부
+- [GitHub 릴리스](https://github.com/hayoung-99/simsim-friends/releases) — 지난 버전까지 전부
 
 ### 처음 한 번만
 
@@ -75,14 +75,14 @@ Buddling은 그 사이를 채웁니다. 내가 내 캐릭터를 톡 누르면, �
 **Linux**
 
 1. 받은 파일을 마우스 오른쪽으로 눌러 **속성 → 권한**에서 **"프로그램으로 실행
-   허용"**을 켜요 (터미널이 편하면 `chmod +x buddling-{version}-x86_64.AppImage`).
+   허용"**을 켜요 (터미널이 편하면 `chmod +x simsim-friends-{version}-x86_64.AppImage`).
 2. 두 번 눌러 열어요.
 
 받은 파일은 홈 폴더나 다운로드 폴더처럼 **내가 지울 수 있는 자리에 그대로
 두세요.** 압축을 풀거나 `/opt` 처럼 손댈 수 없는 자리에 두면 새 버전을 조용히
 받아 두지 못하고 "새 버전이 나왔어요" 안내만 떠요.
 
-> 같은 안내가 [홈페이지](https://buddling.vercel.app/#install)에도 그림과 함께
+> 같은 안내가 [홈페이지](https://simsim-friends.vercel.app/#install)에도 그림과 함께
 > 있습니다. 둘 중 편한 쪽을 보세요.
 
 > **Linux 는 아직 갓 나왔어요.** 파일은 정상으로 만들어지지만, 캐릭터가
@@ -95,7 +95,7 @@ Buddling은 그 사이를 채웁니다. 내가 내 캐릭터를 톡 누르면, �
 앱을 켜면 캐릭터와 함께 이런 창이 열려요.
 
 <div align="center">
-<img src="apps/web/public/assets/team-window.webp" alt="방 목록이 열려 있는 Buddling 창" width="420">
+<img src="apps/web/public/assets/team-window.webp" alt="방 목록이 열려 있는 SimSim Friends 창" width="420">
 </div>
 
 1. **이름을 정해요.** 방에서 다른 사람들에게 보일 이름이에요.
@@ -235,7 +235,7 @@ npm start   # 빌드하고 앱을 띄웁니다
 ```
 
 접속 정보가 없어도 앱은 켜지고, 무엇을 해야 하는지 창이 안내해 줍니다. 화면만
-둘러보려면 `BUDDLING_FAKE_NET=1 npm start` 로 가짜 서버를 쓸 수도 있어요.
+둘러보려면 `SIMSIM_FAKE_NET=1 npm start` 로 가짜 서버를 쓸 수도 있어요.
 
 자주 쓰는 것들.
 

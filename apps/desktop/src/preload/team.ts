@@ -1,6 +1,6 @@
 import { contextBridge, ipcRenderer } from 'electron'
-import type { TeamApi, IpcResult } from '@buddling/shared/ipc'
-import type { AppState } from '@buddling/shared/state'
+import type { TeamApi, IpcResult } from '@simsim-friends/shared/ipc'
+import type { AppState } from '@simsim-friends/shared/state'
 
 /**
  * 목록 창과 상세 창이 같은 preload 를 쓴다.

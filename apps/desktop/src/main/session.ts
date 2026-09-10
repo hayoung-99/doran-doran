@@ -18,9 +18,9 @@ import type {
   NotificationEntry,
   TapPayload,
   UpdateInfo,
-} from '@buddling/shared/state'
-import { NOTIFICATION_TTL_MS } from '@buddling/shared/state'
-import { toSignal } from '@buddling/shared/signals'
+} from '@simsim-friends/shared/state'
+import { NOTIFICATION_TTL_MS } from '@simsim-friends/shared/state'
+import { toSignal } from '@simsim-friends/shared/signals'
 import type { Net, NetEvent, NetMembership } from '../services/net'
 import type { Store } from './store'
 import defaultStore from './store'
@@ -648,7 +648,7 @@ function createSession({
      * 이 방에서 내가 보낼 신호를 고른다.
      *
      * 캐릭터와 달리 **서버로 나가지 않는다.** 남이 미리 알 필요가 없고, 보낼 때
-     * 페이로드에 실어 보내는 것으로 충분하다 (`@buddling/shared/signals` 참고).
+     * 페이로드에 실어 보내는 것으로 충분하다 (`@simsim-friends/shared/signals` 참고).
      */
     setSignal(teamId: string, signal: string) {
       if (!memberships.has(teamId)) return snapshot()
