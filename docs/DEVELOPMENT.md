@@ -54,6 +54,7 @@ npm run typecheck     # 타입 검사
 npm run lint          # 린트 (oxlint)
 npm run check         # 실제 Supabase 연결 점검 (접속 정보 필요)
 npm run preview       # 캐릭터 5종 나란히 보기 + 키프레임 편집기
+npm run studio        # 캐릭터를 각도·동작 골라 배경 없는 PNG 로 뽑는 촬영장
 npm run tray-icon     # 메뉴바 아이콘 PNG 다시 생성
 npm run app-icon      # 앱 아이콘(icns·ico·파비콘) 다시 생성
 npm run site-images   # 랜딩페이지에 쓰는 그림 다시 생성
@@ -164,7 +165,7 @@ apps/
     │   │   ├── team/           방 목록 창(TeamList) + 방 상세 창(TeamDetail)
     │   │   ├── settings/       절전 강도·언어를 고르는 창
     │   │   ├── size/           캐릭터 크기 조절 패널
-    │   │   ├── preview/        개발용 미리보기 — 나란히 보기와 키프레임 편집기
+    │   │   ├── preview/        개발용 미리보기 — 나란히 보기 · 키프레임 편집기 · 촬영장
     │   │   ├── icon/           앱 아이콘을 그리는 화면 (배포본에는 안 들어간다)
     │   │   └── site-assets/    랜딩페이지 그림을 그리는 화면 (배포본에는 안 들어간다)
     │   └── services/      net.ts 인터페이스 · supabase-net · 테스트용 fake-net
@@ -308,6 +309,38 @@ npm run preview -- --editor   # 편집 탭으로 바로 연다
 붙이는 폴짝·춤의 이음매를 지키라고 있는 것이고, 이 둘은 양끝이 중립이 아닌 것이
 정상이기 때문입니다.
 
+### 랜딩·리드미에 쓸 캐릭터 그림은 촬영장에서 뽑습니다
+
+`npm run preview` 의 세 번째 탭 **촬영장**이 캐릭터 한 마리를 회전판 위에 세워 두고,
+각도와 동작을 골라 **배경 없는 PNG** 로 찍어 줍니다.
+
+```bash
+npm run studio   # 촬영장 탭으로 바로 연다
+```
+
+- 손잡이 셋 — `좌우로 돌리기`(±90°) · `위아래로 돌리기`(±45°) · `기울이기`(±60°).
+  **뒷모습은 찍지 않기로 해서 좌우가 ±90° 에서 멈춥니다**
+- 동작 아홉 — `가만히` 와 신호에 붙은 여덟 트랙. 재생 중에 **멈춤**을 누르면 캐릭터와
+  연출(음표·하트 말풍선)이 같은 순간에 함께 얼어붙어, 그 상태로 몇 번이든 다시 찍습니다
+- 찍은 그림은 `apps/desktop/.preview/studio/` 에 떨어집니다 (저장소에는 안 올라갑니다)
+
+**시간 막대는 캐릭터 자세만 되돌립니다** — 음표·하트는 각자 수명을 가진 별개의 연출이라
+따라오지 않습니다. 그것까지 담으려면 재생 → 멈춤을 쓰세요. 고장이 아닙니다.
+
+**바닥 그림자는 기본으로 꺼져 있습니다.** 배경 없는 그림에 옅은 그림자가 알파로 남으면
+다른 색 위에 올렸을 때 캐릭터가 아니라 네모가 하나 떠오릅니다 — `site-assets.ts` 가 빼꼼
+샷에서 그림자 받이를 아예 안 넣는 것과 같은 이유입니다.
+
+**찍는 방식이 다른 두 도구와 다릅니다.** `make-site-images.js`·`make-app-icon.js` 는 투명한
+창을 띄워 창째로 찍지만, 촬영장은 **캔버스에서 직접 그림을 꺼냅니다.** 손잡이가 섞이지 않고
+화면 배율과 무관하게 정확히 요청한 화소가 나오기 때문입니다. 대신 **그리기 버퍼가 매 프레임
+비워지므로 캡처는 반드시 렌더 루프 안에서, 그린 직후에** 일어나야 합니다 — 버튼 처리기로
+옮기면 어떤 기계에서는 빈 그림이 나옵니다.
+
+여기서 맞춘 각도는 `site-assets.ts` 의 `LAYOUTS` 에 그대로 옮겨 적을 수 있습니다(패널의
+`복사` 버튼이 라디안 코드 조각을 만들어 줍니다). 그러라고 양쪽이 **같은 오일러 순서**
+(`'ZYX'`)를 씁니다. 자세한 것은 [design/character-capture-studio.md](design/character-capture-studio.md) 6장에 있습니다.
+
 ### 손 흔들기는 각도가 아니라 어깨로 읽힙니다
 
 이 캐릭터들의 팔은 관절 없는 짧은 돌기이고 어깨가 몸통 옆면에 붙박여 있어서,
@@ -380,6 +413,7 @@ npm run check:site  # 스스로 어긋나지 않았는지 (CI 도 이걸 돌린�
 | 캐릭터를 한 마리씩 숨기기 | [docs/design/pet-hide-individual.md](design/pet-hide-individual.md) | 구현 완료 (리뷰 대기) |
 | 리눅스 빌드·배포 파이프라인 | [docs/design/linux-build-pipeline.md](design/linux-build-pipeline.md) | 구현 완료 (리뷰 대기) |
 | 이름을 SimSim Friends 로 | [docs/design/rename-simsim-friends.md](design/rename-simsim-friends.md) | 구현 완료 (리뷰 대기) |
+| 캐릭터 캡쳐 스튜디오 | [docs/design/character-capture-studio.md](design/character-capture-studio.md) | 구현 완료 (리뷰 대기) |
 
 **위 문서들에 나오는 `BUDDLING_*` 환경변수와 `buddling-…` 파일 이름은 옛 이름입니다**
 (2026-09 에 `SIMSIM_*` · `simsim-friends-…` 로 옮겼습니다 —

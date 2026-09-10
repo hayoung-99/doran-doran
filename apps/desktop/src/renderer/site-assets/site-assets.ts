@@ -165,6 +165,8 @@ LAYOUT.specs.forEach((spec, index) => {
   const critter = createCritter(spec)
   const stand = new THREE.Group()
   stand.position.x = (index - (LAYOUT.specs.length - 1) / 2) * LAYOUT.spacing
+  // 촬영장(`preview` 의 촬영장 탭)과 같은 순서여야 거기서 맞춘 각도가 그대로 나온다.
+  stand.rotation.order = 'ZYX'
   stand.rotation.y = LAYOUT.yaw
   stand.rotation.z = LAYOUT.roll ?? 0
   stand.scale.setScalar(scaleToStandardHeight(critter))

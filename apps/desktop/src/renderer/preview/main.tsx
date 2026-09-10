@@ -1,11 +1,12 @@
 /**
  * 개발용 미리보기의 껍데기. 앱 동작과는 무관하다 — 배포본에 들어가지 않는다.
  *
- * 두 모드가 있다.
+ * 세 모드가 있다.
  *   나란히 보기 — 5종을 한 줄로 세워 비율·색을 본다 (캡처 스크립트가 쓴다)
  *   편집        — 한 마리를 크게 놓고 키프레임을 슬라이더로 다듬는다
+ *   촬영장      — 한 마리를 각도·동작 골라 배경 없는 PNG 로 뽑는다 (`studio.tsx`)
  *
- * React 가 맡는 것은 패널의 폼 상태까지다. 캔버스는 `startGallery`·`startEditorStage`
+ * React 가 맡는 것은 패널의 폼 상태까지다. 캔버스는 `startGallery`·`startCharacterStage`
  * 가 명령형으로 굴리고, **재생 중의 시각은 React 를 거치지 않고 DOM 을 직접 만진다** —
  * 초당 60번 도는 값이라 그때마다 재조정을 돌릴 이유가 없다.
  */
@@ -25,8 +26,10 @@ import type { TrackName } from '../pet/animations'
 import type { EasingName, Keyframe } from '../pet/tween'
 import { PET_BASE_SIZE } from '../../main/pet-size'
 import { startGallery } from './gallery'
-import { startEditorStage, initialTrack } from './editor-stage'
-import type { EditorStage } from './editor-stage'
+import { startCharacterStage, initialTrack } from './character-stage'
+import type { CharacterStage } from './character-stage'
+import { Studio } from './studio'
+import { TRACKS, solid, ghost, panelLabel } from './panel'
 import {
   EASING_NAMES,
   insertKeyAt,
@@ -37,17 +40,6 @@ import {
   timeBounds,
 } from './keyframes'
 import '../theme.css'
-
-const TRACKS: { name: TrackName; label: string; constant: string }[] = [
-  { name: 'hop', label: '폴짝', constant: 'HOP_UNIT' },
-  { name: 'dance', label: '춤', constant: 'DANCE_UNIT' },
-  { name: 'twitch', label: '움찔', constant: 'TWITCH_UNIT' },
-  { name: 'wave', label: '손 흔들기', constant: 'WAVE_UNIT' },
-  { name: 'shy', label: '수줍음', constant: 'SHY_UNIT' },
-  { name: 'sulk', label: '앙탈', constant: 'SULK_UNIT' },
-  { name: 'doze', label: '잠들기', constant: 'DOZE_UNIT' },
-  { name: 'wake', label: '깨어나기', constant: 'WAKE_UNIT' },
-]
 
 /**
  * 양끝이 중립이 아닌 것이 **정상**인 트랙.
@@ -84,11 +76,6 @@ const RANGE: Record<string, [number, number, number]> = {
   reach: [0, 1.2, 0.01],
 }
 const rangeOf = (field: string) => RANGE[field] ?? [-2, 2, 0.01]
-
-const button = 'font-ui text-[13px] px-4 py-[7px] rounded-full border-0 cursor-pointer'
-const solid = `${button} bg-ink text-cream`
-const ghost = `${button} bg-line text-ink`
-const panelLabel = 'text-[11px] uppercase tracking-[0.09em] text-ink-soft'
 
 // ────────────────────────────────── 나란히 보기 ──────────────────────────────────
 
@@ -148,7 +135,7 @@ function Editor() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const headRef = useRef<HTMLInputElement>(null)
   const clockRef = useRef<HTMLSpanElement>(null)
-  const stageRef = useRef<EditorStage | null>(null)
+  const stageRef = useRef<CharacterStage | null>(null)
 
   const [track, setTrack] = useState<TrackName>('wave')
   const [tracks, setTracks] = useState<Record<TrackName, Keyframe[]>>(() => ({
@@ -189,7 +176,7 @@ function Editor() {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const stage = startEditorStage({
+    const stage = startCharacterStage({
       canvas,
       // 재생 중에는 React 를 거치지 않고 눈금과 시계를 직접 민다
       onPlayhead: setHead,
@@ -561,9 +548,9 @@ function Slide({
 // ──────────────────────────────────── 껍데기 ────────────────────────────────────
 
 function Preview() {
-  // 주소 끝의 `#editor` 로 편집 모드를 바로 열 수 있다. 캡처 스크립트가 그 길로 연다.
-  const [mode, setMode] = useState<'gallery' | 'editor'>(
-    location.hash === '#editor' ? 'editor' : 'gallery',
+  // 주소 끝의 `#editor`·`#studio` 로 각 모드를 바로 열 수 있다. 실행 스크립트가 그 길로 연다.
+  const [mode, setMode] = useState<'gallery' | 'editor' | 'studio'>(
+    location.hash === '#editor' ? 'editor' : location.hash === '#studio' ? 'studio' : 'gallery',
   )
 
   return (
@@ -575,8 +562,11 @@ function Preview() {
         <button className={mode === 'editor' ? solid : ghost} onClick={() => setMode('editor')}>
           키프레임 편집
         </button>
+        <button className={mode === 'studio' ? solid : ghost} onClick={() => setMode('studio')}>
+          촬영장
+        </button>
       </nav>
-      {mode === 'gallery' ? <Gallery /> : <Editor />}
+      {mode === 'gallery' ? <Gallery /> : mode === 'editor' ? <Editor /> : <Studio />}
     </div>
   )
 }
