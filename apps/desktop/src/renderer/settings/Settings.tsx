@@ -15,10 +15,10 @@
  */
 
 import { useEffect, useState } from 'react'
-import { createTranslator, LANGUAGES } from '@buddling/shared/i18n'
-import type { Translate } from '@buddling/shared/i18n'
-import { POWER_LEVELS, resolvePower } from '@buddling/shared/power'
-import type { AppState } from '@buddling/shared/state'
+import { createTranslator, LANGUAGES } from '@simsim-friends/shared/i18n'
+import type { Translate } from '@simsim-friends/shared/i18n'
+import { POWER_LEVELS, resolvePower } from '@simsim-friends/shared/power'
+import type { AppState } from '@simsim-friends/shared/state'
 import * as ui from '../ui'
 import { PawIcon } from '../icons'
 import { NotificationButton } from '../NotificationButton'

@@ -13,8 +13,8 @@
 
 import { describe, it, expect } from 'vitest'
 import { Box3, Group, PerspectiveCamera, Vector3 } from 'three'
-import { CHARACTERS } from '@buddling/shared/characters'
-import { POWER_LEVELS, powerProfile, SLEEP_FPS } from '@buddling/shared/power'
+import { CHARACTERS } from '@simsim-friends/shared/characters'
+import { POWER_LEVELS, powerProfile, SLEEP_FPS } from '@simsim-friends/shared/power'
 import { createCritter, scaleToStandardHeight } from '../src/renderer/pet/critter'
 import { PET_CAMERA } from '../src/renderer/pet/scene'
 import {

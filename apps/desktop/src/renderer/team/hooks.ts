@@ -7,7 +7,7 @@
  */
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import type { AppState } from '@buddling/shared/state'
+import type { AppState } from '@simsim-friends/shared/state'
 
 /** 알림 화면과 함께 쓰는 갈고리라 거기로 옮겼다. 여기서는 자리만 지키며 다시 내보낸다. */
 export { useMinuteTick } from '../use-minute-tick'

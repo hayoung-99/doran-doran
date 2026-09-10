@@ -12,7 +12,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { CHARACTERS } from '@buddling/shared/characters'
+import { CHARACTERS } from '@simsim-friends/shared/characters'
 import {
   DANCE_CYCLES,
   HOP_COUNT,

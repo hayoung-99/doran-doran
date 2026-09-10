@@ -14,7 +14,7 @@
 
 import { describe, it, expect } from 'vitest'
 import { Box3, Group, PerspectiveCamera, Vector3 } from 'three'
-import { CHARACTERS } from '@buddling/shared/characters'
+import { CHARACTERS } from '@simsim-friends/shared/characters'
 import { createCritter, scaleToStandardHeight } from '../src/renderer/pet/critter'
 import { PET_CAMERA } from '../src/renderer/pet/scene'
 import { createAnimator, sampleSulk, SULK_DURATION, SULK_UNIT } from '../src/renderer/pet/animations'

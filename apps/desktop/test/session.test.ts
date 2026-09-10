@@ -3,9 +3,9 @@ import { createSession, TOUCH_INTERVAL_MS } from '../src/main/session'
 import { createFakeServer, createFakeNet, MAX_TEAMS_PER_USER } from '../src/services/fake-net'
 import type { Store, StoredState } from '../src/main/store'
 import type { Net } from '../src/services/net'
-import type { PetSettings, TapPayload } from '@buddling/shared/state'
-import { NOTIFICATION_TTL_MS } from '@buddling/shared/state'
-import { DEFAULT_SIGNAL } from '@buddling/shared/signals'
+import type { PetSettings, TapPayload } from '@simsim-friends/shared/state'
+import { NOTIFICATION_TTL_MS } from '@simsim-friends/shared/state'
+import { DEFAULT_SIGNAL } from '@simsim-friends/shared/signals'
 
 const DEFAULT_PET: PetSettings = { position: null, scale: 1, signal: DEFAULT_SIGNAL }
 

@@ -14,8 +14,8 @@
  */
 
 import { useEffect, useState } from 'react'
-import { createTranslator } from '@buddling/shared/i18n'
-import type { AppState, NotificationEntry } from '@buddling/shared/state'
+import { createTranslator } from '@simsim-friends/shared/i18n'
+import type { AppState, NotificationEntry } from '@simsim-friends/shared/state'
 import { ago } from './ago'
 import { useMinuteTick } from '../use-minute-tick'
 import * as ui from '../ui'

@@ -10,15 +10,15 @@
 /**
  * 화면에 보이는 서비스 이름.
  *
- * 만들어 낸 한 낱말이라 나라말마다 갈리지 않는다. 갈라 두면 구조화 데이터와
- * `og:site_name` 에서 같은 것을 가리키는 이름이 페이지마다 달라지고, 검색엔진이
- * 그걸 둘로 잡는다.
+ * 랜딩은 한국어와 영어뿐이고, 그 두 말은 같은 표기를 쓴다(기획서 "부르는 말은 언어마다
+ * 다르다"). 일본어·중국어 이름은 앱 안에만 있다. 여기서 갈라 두면 구조화 데이터와
+ * `og:site_name` 이 페이지마다 달라져 검색엔진이 둘로 잡는다.
  */
-export const BRAND = 'Buddling'
+export const BRAND = 'SimSim Friends'
 
-export const SITE_URL = 'https://buddling.vercel.app'
+export const SITE_URL = 'https://simsim-friends.vercel.app'
 
-export const REPO = 'hayoung-99/buddling'
+export const REPO = 'hayoung-99/simsim-friends'
 export const REPO_URL = `https://github.com/${REPO}`
 export const RELEASES_PAGE = `${REPO_URL}/releases`
 export const RELEASES_LATEST = `${RELEASES_PAGE}/latest`

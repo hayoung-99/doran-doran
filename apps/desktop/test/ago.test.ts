@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { ago } from '../src/renderer/notifications/ago'
-import { createTranslator } from '@buddling/shared/i18n'
+import { createTranslator } from '@simsim-friends/shared/i18n'
 
 const t = createTranslator('ko')
 const MIN = 60_000

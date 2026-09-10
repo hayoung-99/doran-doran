@@ -8,7 +8,7 @@
  */
 
 import { describe, it, expect } from 'vitest'
-import { DEFAULT_SIGNAL, SIGNALS, toSignal } from '@buddling/shared/signals'
+import { DEFAULT_SIGNAL, SIGNALS, toSignal } from '@simsim-friends/shared/signals'
 
 describe('아는 신호', () => {
   it.each(SIGNALS)('%s 는 그대로 지나간다', (kind) => {

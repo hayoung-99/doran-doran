@@ -15,14 +15,14 @@ import { randomUUID } from 'node:crypto'
 import { createFakeServer, createFakeNet } from './fake-net'
 import { createSupabaseNet } from './supabase-net'
 import type { Emitter } from './emitter'
-import type { Member, TapPayload, Team } from '@buddling/shared/state'
-import type { SignalKind } from '@buddling/shared/signals'
+import type { Member, TapPayload, Team } from '@simsim-friends/shared/state'
+import type { SignalKind } from '@simsim-friends/shared/signals'
 
 // 함께 쓰는 것들은 따로 산다 (고리를 만들지 않으려고). 부르는 쪽이 바뀌지 않도록 여기서 다시 내보낸다.
 export { createEmitter } from './emitter'
 export { toFriendlyError } from './errors'
 export type { Emitter, EventMap } from './emitter'
-export type { Member, Team } from '@buddling/shared/state'
+export type { Member, Team } from '@simsim-friends/shared/state'
 
 /** 서버가 아는 소속. 화면이 보는 것(`shared/state.ts` 의 `Membership`)보다 좁다. */
 export interface NetMembership {
@@ -79,7 +79,7 @@ export interface Net {
 
   /**
    * 내가 지금 속한 방들에서, 내가 들어온 뒤에 일어난 일 중 내가 주인공이 아닌 것들
-   * (기획서 "알림 화면"). 최근 7일치만 온다 — `@buddling/shared/state` 의
+   * (기획서 "알림 화면"). 최근 7일치만 온다 — `@simsim-friends/shared/state` 의
    * `NOTIFICATION_TTL_MS` 와 짝이다.
    */
   getMyEvents(): Promise<NetEvent[]>
@@ -137,7 +137,7 @@ export interface NetConfig {
 /** 설정에 맞는 Net 구현을 만든다 */
 export function createNet(config: NetConfig): Net {
   // 개발용: Supabase 없이 UI 전체를 눌러보고 싶을 때 (같은 프로세스 안에서만 통한다)
-  if (process.env.BUDDLING_FAKE_NET) {
+  if (process.env.SIMSIM_FAKE_NET) {
     // 진짜 쪽은 익명 로그인이 신원을 만들어 준다. 여기서는 흉내만 내면 된다.
     return createFakeNet({ server: createFakeServer(), userId: randomUUID() })
   }

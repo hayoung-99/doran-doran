@@ -1,14 +1,14 @@
 {
-  "name": "buddling",
+  "name": "simsim-friends",
   "version": "0.9.0",
   "private": true,
   "description": "바탕화면 위 3D 동물 친구. 내 캐릭터를 클릭하면 팀원들의 캐릭터가 폴짝 뜁니다.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hayoung-99/buddling.git"
+    "url": "git+https://github.com/hayoung-99/simsim-friends.git"
   },
-  "homepage": "https://buddling.vercel.app",
+  "homepage": "https://simsim-friends.vercel.app",
   "main": "dist-main/main/main.cjs",
   "engines": {
     "node": ">=22"
@@ -18,8 +18,8 @@
     "typecheck": "tsc --noEmit",
     "ensure-electron": "node scripts/ensure-electron.js",
     "start": "npm run ensure-electron && npm run build && electron .",
-    "start:second": "npm run ensure-electron && npm run build && BUDDLING_PROFILE=second electron .",
-    "start:both": "npm run ensure-electron && npm run build && (trap 'kill 0' INT TERM EXIT; electron . & BUDDLING_PROFILE=second electron . & wait)",
+    "start:second": "npm run ensure-electron && npm run build && SIMSIM_PROFILE=second electron .",
+    "start:both": "npm run ensure-electron && npm run build && (trap 'kill 0' INT TERM EXIT; electron . & SIMSIM_PROFILE=second electron . & wait)",
     "dev": "vite build --config vite.config.mts --watch",
     "preview": "npm run ensure-electron && npm run build && electron scripts/preview.js",
     "tray-icon": "node scripts/make-tray-icon.js",
@@ -32,8 +32,8 @@
     "check:expiry": "npm run build && node scripts/check-expiry.js"
   },
   "build": {
-    "appId": "com.taptap.desktop",
-    "productName": "Buddling",
+    "appId": "com.simsimfriends.desktop",
+    "productName": "SimSim Friends",
     "directories": {
       "output": "dist"
     },
@@ -52,7 +52,7 @@
       {
         "provider": "github",
         "owner": "hayoung-99",
-        "repo": "buddling",
+        "repo": "simsim-friends",
         "releaseType": "draft"
       }
     ],
@@ -61,7 +61,7 @@
       "icon": "build/icon.icns",
       "identity": "-",
       "hardenedRuntime": false,
-      "artifactName": "buddling-${version}-${arch}.${ext}",
+      "artifactName": "simsim-friends-${version}-${arch}.${ext}",
       "target": [
         {
           "target": "dmg",
@@ -94,11 +94,11 @@
       "oneClick": true,
       "perMachine": false,
       "allowToChangeInstallationDirectory": false,
-      "artifactName": "buddling-${version}-setup.${ext}"
+      "artifactName": "simsim-friends-${version}-setup.${ext}"
     },
     "linux": {
       "icon": "build/icon.png",
-      "artifactName": "buddling-${version}-${arch}.${ext}",
+      "artifactName": "simsim-friends-${version}-${arch}.${ext}",
       "target": [
         "AppImage"
       ],
@@ -111,7 +111,7 @@
     "electron-updater": "^6.8.9"
   },
   "devDependencies": {
-    "@buddling/shared": "*",
+    "@simsim-friends/shared": "*",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.4.0",
     "@types/react": "^19.2.18",

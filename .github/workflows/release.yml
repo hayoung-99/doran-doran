@@ -202,7 +202,7 @@ jobs:
           fi
 
           gh release edit "${TAG}" \
-            --title "Buddling ${TAG}" \
+            --title "SimSim Friends ${TAG}" \
             --notes-file "${RUNNER_TEMP}/notes.md" \
             --draft=false \
             --latest

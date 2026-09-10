@@ -26,7 +26,7 @@
 import type * as THREE from 'three'
 import { sampleTrack, createSpring, clamp } from './tween'
 import type { Keyframe, Sampled } from './tween'
-import { TAIL } from '@buddling/shared/characters'
+import { TAIL } from '@simsim-friends/shared/characters'
 import type { Critter } from './critter'
 
 /** 이어 붙인 키프레임 한 벌과 그 전체 길이(초) */

@@ -5,9 +5,9 @@ import {
   DEFAULT_LANGUAGE,
   resolveLanguage,
   createTranslator,
-} from '@buddling/shared/i18n'
-import { CHARACTER_KEYS } from '@buddling/shared/characters'
-import { SIGNALS } from '@buddling/shared/signals'
+} from '@simsim-friends/shared/i18n'
+import { CHARACTER_KEYS } from '@simsim-friends/shared/characters'
+import { SIGNALS } from '@simsim-friends/shared/signals'
 
 const CODES = Object.keys(DICTIONARIES)
 

@@ -7,8 +7,8 @@
  */
 
 import { BellIcon } from './icons'
-import type { Translate } from '@buddling/shared/i18n'
-import type { AppState } from '@buddling/shared/state'
+import type { Translate } from '@simsim-friends/shared/i18n'
+import type { AppState } from '@simsim-friends/shared/state'
 
 export function NotificationButton({
   state,

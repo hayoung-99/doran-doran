@@ -12,9 +12,10 @@
 import path from 'node:path'
 import { BrowserWindow, screen } from 'electron'
 import store from './store'
+import { t } from './i18n'
 import { clampScale, petSizeFor, nextPetBounds, sizePanelPosition, PET_BASE_SIZE } from './pet-size'
 import type { Size } from './pet-size'
-import type { PetSettings } from '@buddling/shared/state'
+import type { PetSettings } from '@simsim-friends/shared/state'
 
 const ROOT = path.join(__dirname, '..', '..')
 
@@ -35,11 +36,11 @@ const SIZE_PANEL = { width: 244, height: 56 }
  * 화면 오른쪽 아래부터 왼쪽으로 차례차례.
  *
  * 팀이 여러 개면 캐릭터도 여러 마리라 같은 자리에 겹치면 안 된다.
- * 혼자서 두 명인 척 테스트할 때(BUDDLING_PROFILE)도 한 칸 더 비켜 세운다.
+ * 혼자서 두 명인 척 테스트할 때(SIMSIM_PROFILE)도 한 칸 더 비켜 세운다.
  */
 function defaultPetPosition(size: Size, index = 0) {
   const { workArea } = screen.getPrimaryDisplay()
-  const slot = index + (process.env.BUDDLING_PROFILE ? 1 : 0)
+  const slot = index + (process.env.SIMSIM_PROFILE ? 1 : 0)
   const shift = slot * (PET_BASE_SIZE.width + 40)
   return {
     x: Math.round(workArea.x + workArea.width - size.width - 40 - shift),
@@ -93,7 +94,7 @@ function createPetWindow({ teamId, index = 0 }: { teamId: string; index?: number
     // 캐릭터를 없애는 길은 숨기기(세 자리)와 팀 나가기뿐이다. 맥에서 ⌘W 로 캐릭터가
     // 닫혀 버리는 것을 막는 것은 여기가 아니라 `main.ts` 의 `close` 가드다 —
     // `closable: false` 로 두면 종료 자체가 통째로 취소된다 (`quit.ts` 참고).
-    title: 'Buddling',
+    title: t('app.name'),
     webPreferences: {
       preload: preloadScript('pet'),
       contextIsolation: true,
@@ -140,7 +141,7 @@ function createSizeWindow() {
     maximizable: false,
     minimizable: false,
     show: false,
-    title: 'Buddling 크기',
+    title: t('app.name'),
     webPreferences: {
       preload: preloadScript('size'),
       contextIsolation: true,
@@ -172,7 +173,7 @@ function createSettingsWindow() {
     height: 560,
     minWidth: 380,
     minHeight: 440,
-    title: 'Buddling',
+    title: t('app.name'),
     backgroundColor: '#f5efe1',
     titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : 'default',
     show: false,
@@ -195,7 +196,7 @@ function createNotificationsWindow() {
     height: 520,
     minWidth: 340,
     minHeight: 400,
-    title: 'Buddling',
+    title: t('app.name'),
     backgroundColor: '#f5efe1',
     titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : 'default',
     show: false,
@@ -218,7 +219,7 @@ function createTeamWindow() {
     height: 700,
     minWidth: 360,
     minHeight: 520,
-    title: 'Buddling',
+    title: t('app.name'),
     backgroundColor: '#f5efe1',
     titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : 'default',
     show: false,
@@ -245,7 +246,7 @@ function createTeamDetailWindow(teamId: string, index = 0) {
     height: 820,
     minWidth: 380,
     minHeight: 520,
-    title: 'Buddling',
+    title: t('app.name'),
     backgroundColor: '#f5efe1',
     titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : 'default',
     show: false,

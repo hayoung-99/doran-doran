@@ -14,7 +14,7 @@ import { toFriendlyError } from '../services/net'
 import { t } from './i18n'
 import { nextDefaultName } from './default-name'
 import type { BrowserWindow } from 'electron'
-import type { IpcResult } from '@buddling/shared/ipc'
+import type { IpcResult } from '@simsim-friends/shared/ipc'
 import type { AppShell } from './main'
 import type { Session } from './session'
 
@@ -160,7 +160,7 @@ function registerIpc({ session, app }: { session: Session; app: AppShell }) {
       // '모두 숨기기' 도 여기 두지 않는다 (기획서: '모두' 는 트레이 한 곳뿐).
       { label: t('app.hide'), click: () => app.setPetHidden(teamId, true) },
     ])
-    // buddling 종료(프로세스 완전 종료)는 트레이 메뉴에서만 할 수 있다 — 여기 quit
+    // simsim-friends 종료(프로세스 완전 종료)는 트레이 메뉴에서만 할 수 있다 — 여기 quit
     // 항목이 없어도, 이 메뉴가 열려 있는 동안 트레이나 ⌘Q 로 종료가 시작되면 여전히
     // 프로세스가 영구히 얼어붙을 수 있어 이 방어는 그대로 둔다 (`quit.ts`).
     app.menuOpened(menu)

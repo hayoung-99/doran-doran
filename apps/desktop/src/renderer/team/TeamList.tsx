@@ -11,10 +11,10 @@
  */
 
 import { useState } from 'react'
-import { getCharacter } from '@buddling/shared/characters'
-import { createTranslator } from '@buddling/shared/i18n'
-import type { Translate } from '@buddling/shared/i18n'
-import type { AppState, Membership } from '@buddling/shared/state'
+import { getCharacter } from '@simsim-friends/shared/characters'
+import { createTranslator } from '@simsim-friends/shared/i18n'
+import type { Translate } from '@simsim-friends/shared/i18n'
+import type { AppState, Membership } from '@simsim-friends/shared/state'
 import { characterThumbnails } from './thumbnails'
 import { useAppState, useRunner } from './hooks'
 import * as ui from '../ui'

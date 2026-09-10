@@ -12,8 +12,8 @@
  */
 
 import * as THREE from 'three'
-import { EAR, TAIL, SNOUT, ARM } from '@buddling/shared/characters'
-import type { CharacterBuild, CharacterSpec, PaletteKey } from '@buddling/shared/characters'
+import { EAR, TAIL, SNOUT, ARM } from '@simsim-friends/shared/characters'
+import type { CharacterBuild, CharacterSpec, PaletteKey } from '@simsim-friends/shared/characters'
 
 const TOY_SURFACE = { roughness: 0.62, metalness: 0.0 }
 

@@ -9,8 +9,8 @@
  */
 
 import { useState } from 'react'
-import type { Translate } from '@buddling/shared/i18n'
-import type { AppState } from '@buddling/shared/state'
+import type { Translate } from '@simsim-friends/shared/i18n'
+import type { AppState } from '@simsim-friends/shared/state'
 import * as ui from './ui'
 
 export function OfflineScreen({ t, onRetry }: { t: Translate; onRetry: () => Promise<AppState> }) {

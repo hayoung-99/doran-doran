@@ -35,7 +35,7 @@ describe('canReplaceAppImage', () => {
 
   it('AppImage 로 떠 있고 그 폴더에 쓸 수 있으면 된다', () => {
     const { env } = harness({
-      appImagePath: '/home/me/Apps/buddling-1.0.0-x86_64.AppImage',
+      appImagePath: '/home/me/Apps/simsim-friends-1.0.0-x86_64.AppImage',
     })
     expect(canReplaceAppImage(env)).toBe(true)
   })
@@ -52,30 +52,30 @@ describe('canReplaceAppImage', () => {
 
   it('snap 이면 안 된다 — 스토어가 갱신을 맡는다', () => {
     const { env } = harness({
-      appImagePath: '/home/me/Apps/buddling-1.0.0-x86_64.AppImage',
-      snapPath: '/snap/buddling/current',
+      appImagePath: '/home/me/Apps/simsim-friends-1.0.0-x86_64.AppImage',
+      snapPath: '/snap/simsim-friends/current',
     })
     expect(canReplaceAppImage(env)).toBe(false)
   })
 
   it('상대경로면 안 된다 — doInstall() 도 이 검사를 한다', () => {
-    const { env } = harness({ appImagePath: 'buddling.AppImage' })
+    const { env } = harness({ appImagePath: 'simsim-friends.AppImage' })
     expect(canReplaceAppImage(env)).toBe(false)
   })
 
   it('NUL 이 낀 경로면 안 된다 — doInstall() 도 이 검사를 한다', () => {
-    const { env } = harness({ appImagePath: '/home/me/bud\0dling.AppImage' })
+    const { env } = harness({ appImagePath: '/home/me/sim\0sim-friends.AppImage' })
     expect(canReplaceAppImage(env)).toBe(false)
   })
 
   it('폴더에 쓸 수 없으면 안 된다 — 예: /opt 에 root 소유로 놓인 경우', () => {
-    const { env } = harness({ appImagePath: '/opt/buddling.AppImage', canWrite: false })
+    const { env } = harness({ appImagePath: '/opt/simsim-friends.AppImage', canWrite: false })
     expect(canReplaceAppImage(env)).toBe(false)
   })
 
   it('판정할 때 파일 경로가 아니라 담긴 폴더로 canWriteDir 를 부른다', () => {
     const { env, canWriteDir } = harness({
-      appImagePath: '/home/me/Apps/buddling-1.0.0-x86_64.AppImage',
+      appImagePath: '/home/me/Apps/simsim-friends-1.0.0-x86_64.AppImage',
     })
     canReplaceAppImage(env)
     // unlink·mv 는 대상 파일이 아니라 디렉터리에 쓰기 권한을 요구한다 (1.2).

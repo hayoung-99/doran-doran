@@ -4,10 +4,10 @@
 
 | 쓰는 컴퓨터 | 받을 파일 |
 |---|---|
-| Mac (M1·M2·M3·M4) | `buddling-{version}-arm64.dmg` |
-| Mac (2020년 이전 인텔) | `buddling-{version}-x64.dmg` |
-| Windows | `buddling-{version}-setup.exe` |
-| Linux (x86_64) | `buddling-{version}-x86_64.AppImage` |
+| Mac (M1·M2·M3·M4) | `simsim-friends-{version}-arm64.dmg` |
+| Mac (2020년 이전 인텔) | `simsim-friends-{version}-x64.dmg` |
+| Windows | `simsim-friends-{version}-setup.exe` |
+| Linux (x86_64) | `simsim-friends-{version}-x86_64.AppImage` |
 
 내 맥이 어느 쪽인지 모르겠다면 **  → 이 Mac에 관하여**를 열어 보세요.
 "칩"이라고 적혀 있으면 arm64, "프로세서"라고 적혀 있으면 x64 입니다.
@@ -23,7 +23,7 @@
 1. 받은 앱을 **응용 프로그램** 폴더로 옮깁니다
 2. 두 번 눌러 엽니다. 경고가 뜨면 **완료**를 누릅니다
 3. **시스템 설정 → 개인 정보 보호 및 보안** 을 엽니다
-4. 아래쪽으로 내려가면 Buddling 이야기가 있습니다. **"확인 없이 열기"** 를 누르고
+4. 아래쪽으로 내려가면 SimSim Friends 이야기가 있습니다. **"확인 없이 열기"** 를 누르고
    한 번 더 **열기** 를 누르면 다음부터는 그냥 열립니다
 
 예전 안내에 흔히 나오는 **"우클릭 → 열기"는 이제 통하지 않습니다.** 애플이
@@ -32,7 +32,7 @@ macOS 15 부터 그 방법을 없앴습니다.
 그래도 막히면 터미널에서 아래를 한 번 실행하세요.
 
 ```bash
-xattr -cr "/Applications/Buddling.app"
+xattr -cr "/Applications/SimSim Friends.app"
 ```
 
 ### Windows
@@ -43,7 +43,7 @@ xattr -cr "/Applications/Buddling.app"
 
 1. 받은 파일을 마우스 오른쪽으로 누르고 **속성 → 권한**에서
    **"프로그램으로 실행 허용"**을 켭니다 (터미널이 편하면
-   `chmod +x buddling-{version}-x86_64.AppImage`)
+   `chmod +x simsim-friends-{version}-x86_64.AppImage`)
 2. 두 번 눌러 엽니다
 
 받은 파일을 **내가 지울 수 있는 자리에 그대로 두세요** — 홈 폴더나 다운로드
@@ -67,4 +67,4 @@ macOS 는 코드 서명이 없으면 자동 설치가 불가능해서, 새 버�
 
 ---
 
-전체 코드와 문서: https://github.com/hayoung-99/buddling
+전체 코드와 문서: https://github.com/hayoung-99/simsim-friends

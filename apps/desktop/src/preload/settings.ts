@@ -1,6 +1,6 @@
 import { contextBridge, ipcRenderer } from 'electron'
-import type { SettingsApi, IpcResult } from '@buddling/shared/ipc'
-import type { AppState } from '@buddling/shared/state'
+import type { SettingsApi, IpcResult } from '@simsim-friends/shared/ipc'
+import type { AppState } from '@simsim-friends/shared/state'
 
 /** 메인 프로세스가 `{ ok, value, error }` 로 답한다. 실패는 여기서 다시 던진다. */
 async function call<T>(channel: string, payload?: unknown): Promise<T> {
