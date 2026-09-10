@@ -1,5 +1,54 @@
 # Changelog
 
+## [0.11.0](https://github.com/hayoung-99/simsim-friends/compare/v0.10.0...v0.11.0) (2026-09-10)
+
+
+### 새로운 것
+
+* **admin:** rebuild the dashboard around now, real usage and new arrivals ([#51](https://github.com/hayoung-99/simsim-friends/issues/51)) ([816fe11](https://github.com/hayoung-99/simsim-friends/commit/816fe1114357545de311dedda46f202b9c3d76d5))
+* **app:** add the heart signal, as a shy one ([#77](https://github.com/hayoung-99/simsim-friends/issues/77)) ([8d9c6ad](https://github.com/hayoung-99/simsim-friends/commit/8d9c6ad03cb95ee332c78789f5fb6a3386961e16))
+* **app:** add the sulk signal ([#79](https://github.com/hayoung-99/simsim-friends/issues/79)) ([7e51efa](https://github.com/hayoung-99/simsim-friends/commit/7e51efa7fb81550046267f41dca25e4405310c7a))
+* **app:** add the wave signal ([#73](https://github.com/hayoung-99/simsim-friends/issues/73)) ([473a58a](https://github.com/hayoung-99/simsim-friends/commit/473a58a554b0f77ac2b24c920a66492688c49e80))
+* **app:** carry a signal kind with every poke, and add the hop signal ([#71](https://github.com/hayoung-99/simsim-friends/issues/71)) ([c8c477a](https://github.com/hayoung-99/simsim-friends/commit/c8c477a985d72f88383ba1d523e687989df70ee3))
+* **app:** let a room be put to sleep ([#82](https://github.com/hayoung-99/simsim-friends/issues/82)) ([132336c](https://github.com/hayoung-99/simsim-friends/commit/132336ca65965325557141b40fd6b5a3c8f3f46c))
+* **app:** rename the five characters ([#96](https://github.com/hayoung-99/simsim-friends/issues/96)) ([0f3dba4](https://github.com/hayoung-99/simsim-friends/commit/0f3dba48a25c00b905cf5d776b3e6662f4b2a53f))
+* call it a room on the landing page and in the admin ([#63](https://github.com/hayoung-99/simsim-friends/issues/63)) ([6125b16](https://github.com/hayoung-99/simsim-friends/commit/6125b16940a3d75c7497692a2ff6876bfd0755af))
+* **desktop:** add a character capture studio dev tool ([#123](https://github.com/hayoung-99/simsim-friends/issues/123)) ([071db76](https://github.com/hayoung-99/simsim-friends/commit/071db7694e0f283bd2d23e57964026c0f25e0ebb))
+* **desktop:** add Linux to the release build and let it self-update ([#112](https://github.com/hayoung-99/simsim-friends/issues/112)) ([e176cf4](https://github.com/hayoung-99/simsim-friends/commit/e176cf4ea47eaaf842321f612020f389e2135a05))
+* **desktop:** add room host and kicking members ([#99](https://github.com/hayoung-99/simsim-friends/issues/99)) ([96ced27](https://github.com/hayoung-99/simsim-friends/commit/96ced27308cb4fc371e25fb5615277fde7753914))
+* **desktop:** add the notification screen and its room-event feed ([#101](https://github.com/hayoung-99/simsim-friends/issues/101)) ([f744e06](https://github.com/hayoung-99/simsim-friends/commit/f744e06d62fe3ce972caf1e936b0744ce7216996))
+* **desktop:** cover windows with an offline screen and cache notifications for offline reading ([#102](https://github.com/hayoung-99/simsim-friends/issues/102)) ([7d8a512](https://github.com/hayoung-99/simsim-friends/commit/7d8a5129f07cad0aea505f90739ac579784daeb2))
+* **desktop:** hide characters one at a time instead of all at once ([#111](https://github.com/hayoung-99/simsim-friends/issues/111)) ([bac0b49](https://github.com/hayoung-99/simsim-friends/commit/bac0b49e283b8dedd62c47f863504b225609973b))
+* **desktop:** polish the room create/join form ([#104](https://github.com/hayoung-99/simsim-friends/issues/104)) ([400a565](https://github.com/hayoung-99/simsim-friends/commit/400a56509a3bb3634d218754e75ce67bc2ed3bc3))
+* **desktop:** reskin onboarding screen with warm palette, icons and display font ([#95](https://github.com/hayoung-99/simsim-friends/issues/95)) ([0853352](https://github.com/hayoung-99/simsim-friends/commit/0853352e93c2a8c7c42a1b36d03c73be4ff6dca3))
+* **desktop:** swap the five in-window icons for lucide-react ([#105](https://github.com/hayoung-99/simsim-friends/issues/105)) ([141eafc](https://github.com/hayoung-99/simsim-friends/commit/141eafc4270483fe9762b9792c76d6bee09abfb4))
+* **i18n:** call it a room, not a team ([#62](https://github.com/hayoung-99/simsim-friends/issues/62)) ([5dcd795](https://github.com/hayoung-99/simsim-friends/commit/5dcd79579a5136a7e19b05b5644220dd5802e559))
+* name an unnamed room in the user's own language ([#65](https://github.com/hayoung-99/simsim-friends/issues/65)) ([2f3a5c4](https://github.com/hayoung-99/simsim-friends/commit/2f3a5c4031399f3816267263eb6a1d955a99d8eb))
+* **pet:** give animations a one-armed wave, and widen the window to fit it ([#66](https://github.com/hayoung-99/simsim-friends/issues/66)) ([89b6f5d](https://github.com/hayoung-99/simsim-friends/commit/89b6f5dc2279bc4212c0667b881757e768ecf43a))
+* **preview:** build a keyframe editor into the preview window ([#70](https://github.com/hayoung-99/simsim-friends/issues/70)) ([a63388a](https://github.com/hayoung-99/simsim-friends/commit/a63388a1d72af9acb4f906b3db5e76f97661c1d2))
+* rename the product to Buddling ([#67](https://github.com/hayoung-99/simsim-friends/issues/67)) ([cb07529](https://github.com/hayoung-99/simsim-friends/commit/cb075291cd138451652ea18a3fdc3a2f644cd5b6))
+* rename the product to SimSim Friends ([#120](https://github.com/hayoung-99/simsim-friends/issues/120)) ([24db4af](https://github.com/hayoung-99/simsim-friends/commit/24db4af4a4a803396afafc4aa49675db6e9a5774))
+* **web:** add a read-only usage dashboard at /admin ([#48](https://github.com/hayoung-99/simsim-friends/issues/48)) ([df2284f](https://github.com/hayoung-99/simsim-friends/commit/df2284f32876d7084fc381c8d78667b7c27151fc))
+* **web:** show the thing the page has only been describing ([#89](https://github.com/hayoung-99/simsim-friends/issues/89)) ([a08c4ae](https://github.com/hayoung-99/simsim-friends/commit/a08c4ae6cfb4321db0e259a87e57e6fa68eceef6))
+
+
+### 고친 것
+
+* **app:** recover instead of failing when the account was cleaned up ([#54](https://github.com/hayoung-99/simsim-friends/issues/54)) ([df3d716](https://github.com/hayoung-99/simsim-friends/commit/df3d7169413f066f9e543632272e9c98fb51e5c9))
+* **ci:** build the desktop app before packaging, fix CRLF-sensitive test ([#93](https://github.com/hayoung-99/simsim-friends/issues/93)) ([ce6d6d7](https://github.com/hayoung-99/simsim-friends/commit/ce6d6d77bd39deaef1772f7db3d89c0327c184f5))
+* **desktop:** anchor the size panel to the character's head, not the window top ([#113](https://github.com/hayoung-99/simsim-friends/issues/113)) ([db24a6e](https://github.com/hayoung-99/simsim-friends/commit/db24a6e8f6f24bf04f84c9e0abeab41be62197b3))
+* **desktop:** clamp pet drag to the character's visible edges, not the window's ([#117](https://github.com/hayoung-99/simsim-friends/issues/117)) ([888605f](https://github.com/hayoung-99/simsim-friends/commit/888605f8ebb9e1169462227f5f544827f448477e))
+* **desktop:** even out the spacing around the room form divider ([#108](https://github.com/hayoung-99/simsim-friends/issues/108)) ([0f35f38](https://github.com/hayoung-99/simsim-friends/commit/0f35f384e74f1dbd9220d18a6a48fbc904c83183))
+* **desktop:** install electron binary before launching it ([#107](https://github.com/hayoung-99/simsim-friends/issues/107)) ([8d660d6](https://github.com/hayoung-99/simsim-friends/commit/8d660d61a158d582816e3d4a5d10f499e86b4221))
+* **desktop:** make quit fully terminate the process ([#110](https://github.com/hayoung-99/simsim-friends/issues/110)) ([676f72c](https://github.com/hayoung-99/simsim-friends/commit/676f72cedf57b2b8ff0b5c2d39c69094ae1dbd00))
+* **desktop:** show the paw icon in every window's header ([#109](https://github.com/hayoung-99/simsim-friends/issues/109)) ([6b01588](https://github.com/hayoung-99/simsim-friends/commit/6b01588cd07deb3d7a312c22634cd0f272f4b96f))
+* **desktop:** submit the nickname the screen actually shows ([#106](https://github.com/hayoung-99/simsim-friends/issues/106)) ([65dd4a3](https://github.com/hayoung-99/simsim-friends/commit/65dd4a385ed1533a434cf59f74cd3af4f4a4b2ba))
+
+
+### 빨라진 것
+
+* **web:** render the landing images at 2x and ship them as WebP ([#45](https://github.com/hayoung-99/simsim-friends/issues/45)) ([1b6d224](https://github.com/hayoung-99/simsim-friends/commit/1b6d2240d694b5dda35f565127ea60e2fcd272cf))
+
 ## [0.10.0](https://github.com/hayoung-99/simsim-friends/compare/v0.9.0...v0.10.0) (2026-09-10)
 
 
