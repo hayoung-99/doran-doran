@@ -202,11 +202,16 @@ export function startCharacterStage({
   // 캡처는 "예약해 두고 루프가 처리" 하는 모양이다. `preserveDrawingBuffer` 를 켜지
   // 않았으므로(기본 false) 합성이 끝나면 그리기 버퍼가 비워진다 — 버튼 처리기에서
   // `canvas.toDataURL()` 을 부르면 빈 그림이 나온다.
-  let pending: { width: number; height: number; resolve: (url: string) => void } | null = null
+  //
+  // 변수 하나가 아니라 **큐**다. "찍기" 를 한 프레임(약 16ms) 안에 두 번 누르면
+  // 두 요청이 모두 같은 프레임에 들어오는데, 변수 하나면 두 번째가 첫 번째를
+  // 덮어써 첫 캡처의 `resolve` 가 영영 불리지 않는다 — 버튼을 눌렀는데 아무 일도
+  // 안 일어난 것처럼 보인다.
+  let pendingCaptures: { width: number; height: number; resolve: (url: string) => void }[] = []
 
   function capture(size: { width: number; height: number }) {
     return new Promise<string>((resolve) => {
-      pending = { ...size, resolve }
+      pendingCaptures.push({ ...size, resolve })
     })
   }
 
@@ -242,24 +247,26 @@ export function startCharacterStage({
     heartBubble?.update(delta)
     stage.render()
 
-    if (pending) {
-      const { width, height, resolve } = pending
-      pending = null
+    if (pendingCaptures.length > 0) {
+      // 같은 프레임에 쌓인 요청을 전부 비운다. 처리하는 도중 큐가 다시 자라도(캡처
+      // 자체는 동기라 그럴 일은 없지만) 다음 프레임이 마저 처리한다.
+      const queue = pendingCaptures
+      pendingCaptures = []
 
-      // 화면 배율을 1로 못 박아야 요청한 화소가 그대로 나온다.
-      // updateStyle=false 라 캔버스의 CSS 크기는 건드리지 않는다.
-      stage.renderer.setPixelRatio(1)
-      stage.renderer.setSize(width, height, false)
-      stage.camera.aspect = width / height
-      stage.camera.updateProjectionMatrix()
-      stage.renderer.render(stage.scene, stage.camera)
-
-      const url = canvas.toDataURL('image/png')
+      for (const { width, height, resolve } of queue) {
+        // 화면 배율을 1로 못 박아야 요청한 화소가 그대로 나온다.
+        // updateStyle=false 라 캔버스의 CSS 크기는 건드리지 않는다.
+        stage.renderer.setPixelRatio(1)
+        stage.renderer.setSize(width, height, false)
+        stage.camera.aspect = width / height
+        stage.camera.updateProjectionMatrix()
+        stage.renderer.render(stage.scene, stage.camera)
+        resolve(canvas.toDataURL('image/png'))
+      }
 
       // 화면용 크기·배율·비율을 되돌리고 한 장 더 그린다 (안 그러면 한 프레임 찌그러져 보인다)
       stage.resize()
       stage.render()
-      resolve(url)
     }
   })
 

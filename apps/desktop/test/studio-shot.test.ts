@@ -9,11 +9,22 @@ import {
   POSE_LIMITS,
   SHOT_MIN,
   SHOT_MAX,
+  clampNumber,
   clampPose,
   clampSize,
   shotFileName,
   poseSnippet,
 } from '../src/renderer/preview/studio-shot'
+
+describe('clampNumber', () => {
+  it('NaN 을 0 으로 다루고 그 자리에서 범위로 자른다', () => {
+    // 숫자 칸에 `-` 만 적힌 순간처럼, 슬라이더·숫자 칸 둘 다 `Number('-')` 가
+    // NaN 을 내는 도중 상태를 그대로 넘길 수 있다. 가드가 없으면 NaN 이 그대로
+    // 카메라·회전에 들어가 캐릭터가 화면에서 사라진다.
+    expect(clampNumber(NaN, -90, 90)).toBe(0)
+    expect(clampNumber(NaN, 10, 20)).toBe(10) // 0 이 범위 밖이면 최솟값으로 자른다
+  })
+})
 
 describe('clampPose', () => {
   it('경계값은 그대로 둔다', () => {
@@ -42,6 +53,13 @@ describe('clampPose', () => {
 
   it('범위 안의 값은 그대로 둔다', () => {
     expect(clampPose({ yaw: 12, pitch: -8, roll: 33 })).toEqual({ yaw: 12, pitch: -8, roll: 33 })
+  })
+
+  it('NaN 이 섞여도 캐릭터가 사라지지 않게 성한 값으로 돌려준다', () => {
+    // 각도 숫자 칸에 `-` 만 입력한 순간의 `Number('-')` 가 NaN 이다. 이 값이 그대로
+    // `character-stage.ts` 의 `rotation.set()` 에 들어가면 캐릭터가 화면에서
+    // 사라지므로, clampPose 를 거치면 반드시 유한한 각도가 나와야 한다.
+    expect(clampPose({ yaw: NaN, pitch: 0, roll: 0 })).toEqual({ yaw: 0, pitch: 0, roll: 0 })
   })
 })
 

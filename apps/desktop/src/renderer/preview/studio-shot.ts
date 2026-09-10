@@ -21,8 +21,17 @@ export const POSE_LIMITS = { yaw: 90, pitch: 45, roll: 60 } as const
 export const SHOT_MIN = 64
 export const SHOT_MAX = 4096
 
-function clampNumber(value: number, min: number, max: number): number {
-  return Math.min(max, Math.max(min, value))
+/**
+ * 값을 `[min, max]` 사이로 자른다. `NaN` 은 0 으로 다룬다.
+ *
+ * 숫자 칸에 `-` 만 남기고 아직 다음 숫자를 안 적은 순간처럼, `Number(event.target.value)`
+ * 가 `NaN` 을 내는 입력 도중 상태가 그대로 여기 들어올 수 있다. 가드가 없으면
+ * `Math.max(min, NaN)` 이 그대로 `NaN` 을 돌려주고, 그 값이 `rotation.set()` 이나
+ * 카메라 위치에 들어가는 순간 캐릭터가 화면에서 통째로 사라진다.
+ */
+export function clampNumber(value: number, min: number, max: number): number {
+  const finite = Number.isFinite(value) ? value : 0
+  return Math.min(max, Math.max(min, finite))
 }
 
 /** 범위 밖 값을 자른다. 슬라이더 옆 숫자 칸에 직접 적는 길이 있어서 필요하다. */
@@ -36,8 +45,9 @@ export function clampPose(degrees: PoseDegrees): PoseDegrees {
 
 /** `NaN`·소수·범위 밖 값을 전부 64~4096 사이의 성한 정수로 만든다. */
 function clampOneSize(value: number): number {
-  const finite = Number.isFinite(value) ? value : 0
-  return clampNumber(Math.round(finite), SHOT_MIN, SHOT_MAX)
+  // `NaN` 은 `clampNumber` 가 0 으로 다루지만, `Math.round(NaN)` 은 먼저 거치면 그대로
+  // `NaN` 이라 순서를 지켜야 한다 — 자르고 나서 반올림한다.
+  return Math.round(clampNumber(value, SHOT_MIN, SHOT_MAX))
 }
 
 /** 64~4096 정수로 자른다. `NaN`·0·음수도 여기서 걸린다 */

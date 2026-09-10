@@ -13,7 +13,7 @@ import { PET_CAMERA } from '../pet/scene'
 import type { TrackName } from '../pet/animations'
 import { startCharacterStage } from './character-stage'
 import type { CharacterStage, Pose } from './character-stage'
-import { clampPose, clampSize, poseSnippet, shotFileName } from './studio-shot'
+import { clampNumber, clampPose, clampSize, poseSnippet, shotFileName } from './studio-shot'
 import type { PoseDegrees } from './studio-shot'
 import { TRACKS, button, solid, ghost, panelLabel } from './panel'
 
@@ -26,6 +26,14 @@ const SIZE_PRESETS = [
 ] as const
 
 const DEFAULT_SIZE = SIZE_PRESETS[1]
+
+/**
+ * 틀 잡기 손잡이 범위. `AngleRow` 의 `min`/`max` 는 슬라이더 눈금만 잠그고 옆 숫자
+ * 칸에 직접 적는 길은 막지 못하므로, `onChange` 에서 같은 범위로 다시 자른다
+ * (`docs/design/character-capture-studio.md` 2.1 절이 각도 손잡이에 적어 둔 것과
+ * 같은 이유 — `NaN`·범위 밖 값이 카메라로 그대로 들어가면 캔버스가 빈다).
+ */
+const FRAMING_LIMITS = { dolly: [-2, 3], lift: [-0.6, 0.9] } as const
 
 /** 앱 창과 같은 구도가 곧 각도 손잡이의 시작값이다. `createStage()` 가 이미 이 값으로 세워 둔다. */
 const INITIAL_POSE: PoseDegrees = { yaw: (PET_CAMERA.yaw * 180) / Math.PI, pitch: 0, roll: 0 }
@@ -243,18 +251,18 @@ export function Studio() {
           <AngleRow
             label="당기기"
             value={framing.dolly}
-            min={-2}
-            max={3}
+            min={FRAMING_LIMITS.dolly[0]}
+            max={FRAMING_LIMITS.dolly[1]}
             step={0.05}
-            onChange={(v) => setFraming((c) => ({ ...c, dolly: v }))}
+            onChange={(v) => setFraming((c) => ({ ...c, dolly: clampNumber(v, ...FRAMING_LIMITS.dolly) }))}
           />
           <AngleRow
             label="올리기"
             value={framing.lift}
-            min={-0.6}
-            max={0.9}
+            min={FRAMING_LIMITS.lift[0]}
+            max={FRAMING_LIMITS.lift[1]}
             step={0.02}
-            onChange={(v) => setFraming((c) => ({ ...c, lift: v }))}
+            onChange={(v) => setFraming((c) => ({ ...c, lift: clampNumber(v, ...FRAMING_LIMITS.lift) }))}
           />
           <p className="text-[11px] text-ink-soft leading-snug">
             발이 그림 아랫변에 걸리면 몸통이 평평한 가로선으로 잘려 보입니다. 얼굴만
