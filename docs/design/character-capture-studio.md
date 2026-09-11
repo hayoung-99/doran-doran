@@ -42,7 +42,7 @@
 | `apps/desktop/src/renderer/pet/scene.ts` | `createStage()` 가 그림자 받이를 돌려주게 (2.4) |
 | `apps/desktop/src/renderer/site-assets/site-assets.ts` | 오일러 순서 한 줄 (6.2) |
 | `apps/desktop/scripts/preview.js` | `--studio` 플래그 · 저장 경로 가로채기 (7장) |
-| `apps/desktop/package.json` · 루트 `package.json` | `npm run studio` |
+| `apps/desktop/package.json` · 루트 `package.json` | `npm run image-capture-studio` |
 | `docs/DEVELOPMENT.md` | 명령 목록 · 새 절 · 설계 문서 인덱스 |
 
 **앱이 실제로 도는 코드는 `scene.ts` 한 줄뿐이고 그것도 동작을 바꾸지 않습니다.**
@@ -524,12 +524,12 @@ session.defaultSession.on('will-download', (event, item) => {
 
 ```json
 // apps/desktop/package.json
-"studio": "npm run ensure-electron && npm run build && electron scripts/preview.js --studio"
+"image-capture-studio": "npm run ensure-electron && npm run build && electron scripts/preview.js --studio"
 ```
 
 ```json
 // 루트 package.json
-"studio": "npm run studio -w simsim-friends"
+"image-capture-studio": "npm run image-capture-studio -w simsim-friends"
 ```
 
 ---
@@ -539,7 +539,7 @@ session.defaultSession.on('will-download', (event, item) => {
 CI 다섯(`npm test` · `typecheck` · `lint` · `build` · `check:site`)에 더해, 이 기능은 **눈으로
 봐야 끝납니다.**
 
-1. `npm run studio` 로 열어 다섯 종을 갈아 끼워 본다 — 캐릭터를 바꿔도 각도·동작 설정이
+1. `npm run image-capture-studio` 로 열어 다섯 종을 갈아 끼워 본다 — 캐릭터를 바꿔도 각도·동작 설정이
    유지되는지(`setSpecies` 뒤 `setPose` 를 다시 먹여야 합니다)
 2. 세 손잡이를 끝까지 밀어 본다 — 잘리거나 사라지는 자세가 없는지
 3. `수줍음` 을 재생하고 말풍선이 다 떠오른 순간에 **멈춤** → 찍기. 나온 PNG 를 어두운 바탕과

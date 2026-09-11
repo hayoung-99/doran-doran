@@ -32,7 +32,7 @@
     "preview": "npm run preview -w simsim-friends",
     "site-images": "npm run site-images -w simsim-friends --",
     "start": "npm run start -w simsim-friends",
-    "studio": "npm run studio -w simsim-friends",
+    "image-capture-studio": "npm run image-capture-studio -w simsim-friends",
     "start:both": "npm run start:both -w simsim-friends",
     "start:second": "npm run start:second -w simsim-friends",
     "test:watch": "npm run test:watch -w simsim-friends",

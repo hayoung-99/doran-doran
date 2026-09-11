@@ -4,7 +4,7 @@
  *   npm run preview            창을 띄운다 (나란히 보기)
  *   npm run preview -- --editor  키프레임 편집기로 바로 연다
  *   npm run preview -- --shot    .preview/characters.png 로 캡처하고 종료
- *   npm run studio                촬영장 탭으로 바로 연다
+ *   npm run image-capture-studio  촬영장 탭으로 바로 연다
  */
 
 const path = require('node:path')
