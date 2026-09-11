@@ -54,7 +54,7 @@ npm run typecheck     # 타입 검사
 npm run lint          # 린트 (oxlint)
 npm run check         # 실제 Supabase 연결 점검 (접속 정보 필요)
 npm run preview       # 캐릭터 5종 나란히 보기 + 키프레임 편집기
-npm run studio        # 캐릭터를 각도·동작 골라 배경 없는 PNG 로 뽑는 촬영장
+npm run image-capture-studio  # 캐릭터를 각도·동작 골라 배경 없는 PNG 로 뽑는 촬영장
 npm run tray-icon     # 메뉴바 아이콘 PNG 다시 생성
 npm run app-icon      # 앱 아이콘(icns·ico·파비콘) 다시 생성
 npm run site-images   # 랜딩페이지에 쓰는 그림 다시 생성
@@ -315,7 +315,7 @@ npm run preview -- --editor   # 편집 탭으로 바로 연다
 각도와 동작을 골라 **배경 없는 PNG** 로 찍어 줍니다.
 
 ```bash
-npm run studio   # 촬영장 탭으로 바로 연다
+npm run image-capture-studio   # 촬영장 탭으로 바로 연다
 ```
 
 - 손잡이 셋 — `좌우로 돌리기`(±90°) · `위아래로 돌리기`(±45°) · `기울이기`(±60°).
